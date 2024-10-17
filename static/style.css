@@ -1,66 +1,8 @@
-/* Catppuccin Color Palette */
 :root {
-	--white: hsl(220deg, 23%, 95%);
-	--white1: hsl(220deg, 22%, 92%);
-	--white2: hsl(220deg, 21%, 89%);
-	--code-bg: hsl(232deg, 23%, 18%);
-	--Rosewater: hsl(10deg, 56%, 91%);
-	--Rosewater1: hsl(10deg, 58%, 90%);
-	--Rosewater2: hsl(10deg, 57%, 88%);
-	--Flamingo: hsl(0deg, 59%, 88%);
-	--Flamingo1: hsl(0deg, 58%, 86%);
-	--Flamingo2: hsl(0deg, 59%, 84%);
-	--pink: hsl(316deg, 72%, 86%);
-	--pink1: hsl(316deg, 74%, 85%);
-	--pink2: hsl(316deg, 73%, 84%);
-	--Mauve: hsl(267deg, 84%, 81%);
-	--Mauve1: hsl(267deg, 83%, 80%);
-	--Mauve2: hsl(277deg, 59%, 76%);
-	--red: hsl(343deg, 81%, 75%);
-	--red1: hsl(351deg, 74%, 73%);
-	--red2: hsl(359deg, 68%, 71%);
-	--Maroon: hsl(350deg, 65%, 77%);
-	--Maroon1: hsl(355deg, 71%, 77%);
-	--Maroon2: hsl(358deg, 66%, 76%);
-	--Peach: hsl(23deg, 92%, 75%);
-	--Peach1: hsl(21deg, 86%, 73%);
-	--Peach2: hsl(20deg, 79%, 70%);
-	--yellow: hsl(41deg, 86%, 83%);
-	--yellow1: hsl(40deg, 70%, 78%);
-	--yellow2: hsl(40deg, 62%, 73%);
-	--green: hsl(115deg, 54%, 76%);
-	--green1: hsl(105deg, 48%, 72%);
-	--green2: hsl(96deg, 44%, 68%);
-	--teal: hsl(170deg, 57%, 73%);
-	--teal1: hsl(171deg, 47%, 69%);
-	--teal2: hsl(172deg, 39%, 65%);
-	--sky: hsl(189deg, 71%, 73%);
-	--sky1: hsl(189deg, 59%, 73%);
-	--sky2: hsl(189deg, 48%, 73%);
-	--sapphire: hsl(199deg, 76%, 69%);
-	--sapphire1: hsl(199deg, 66%, 69%);
-	--sapphire2: hsl(199deg, 55%, 69%);
-	--blue: hsl(217deg, 92%, 76%);
-	--blue1: hsl(220deg, 83%, 75%);
-	--blue2: hsl(222deg, 74%, 74%);
-	--lavender: hsl(232deg, 97%, 85%);
-	--lavender1: hsl(234deg, 82%, 85%);
-	--lavender2: hsl(239deg, 66%, 84%);
-	--text: hsl(226deg, 64%, 88%);
-	--subtext1: hsl(227deg, 35%, 80%);
-	--subtext0: hsl(228deg, 24%, 72%);
-	--overlay2: hsl(228deg, 17%, 64%);
-	--overlay1: hsl(230deg, 13%, 55%);
-	--overlay0: hsl(231deg, 11%, 47%);
-	--surface2: hsl(233deg, 12%, 39%);
-	--surface1: hsl(234deg, 13%, 31%);
-	--surface0: hsl(237deg, 16%, 23%);
-	--base2: hsl(229deg, 19%, 23%);
-	--base1: hsl(232deg, 23%, 18%);
-	--base: hsl(240deg, 21%, 15%);
-	--mantle: hsl(240deg, 21%, 12%);
-	--crust: hsl(240deg, 23%, 9%);
-	--cherryRed: #e52e71;
+	--navbar-bg-color: hsl(0, 0%, 15%);
+	--navbar-text-color: hsl(0, 0%, 85%);
+	--navbar-text-color-focus: white;
+	--navbar-bg-contrast: hsl(0, 0%, 25%);
 }
 
 * {
@@ -71,75 +13,23 @@
 
 body {
 	height: 100vh;
-	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	font-family: Arial;
+	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.6;
-	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
-	background-attachment: fixed;
-	color: var(--text);
-}
-
-p {
-	padding: 10px;
-	line-height: 20px;
-	margin-bottom: 20px;
-}
-
-h1 {
-	padding: 10px;
-	font-family: 'Crete Round', serif;
-	font-weight: bold;
-	Color: var(--text);
-	font-size: 45px;
-	margin-bottom: 20px;
-}
-
-h2 {
-	font-weight: 300;
-	Color: var(--text);
-	font-size: 55px;
-	text-transform: uppercase;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-h3 {
-	font-size: 30px;
-	Color: var(--text);
-	font-weight: bold;
-	text-transform: uppercase;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-h4 {
-	font-size: 24px;
-	Color: var(--text);
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-bottom: 20px;
-}
-
-h5 {
-	font-size: 15px;
-	Color: var(--text);
-	font-weight: bold;
-	text-transform: uppercase;
-	padding: 10px;
 }
 
 .container {
-	max-width: 1900px;
-	padding: 0 1.4rem;
-	margin: 0 auto;
+	max-width: 1000px;
+	padding-left: 1.4rem;
+	padding-right: 1.4rem;
+	margin-left: auto;
+	margin-right: auto;
 }
-
 
 #navbar {
 	--navbar-height: 64px;
 	position: fixed;
 	height: var(--navbar-height);
-	background-color: var(--base);
+	background-color: var(--navbar-bg-color);
 	left: 0;
 	right: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -159,7 +49,7 @@ h5 {
 
 .home-link,
 .navbar-link {
-	color: var(--text);
+	color: var(--navbar-text-color);
 	text-decoration: none;
 	display: flex;
 	font-weight: 400;
@@ -167,7 +57,7 @@ h5 {
 }
 
 .home-link:is(:focus, :hover) {
-	color: var(--cherryRed);
+	color: var(--navbar-text-color-focus);
 }
 
 .navbar-link {
@@ -178,16 +68,16 @@ h5 {
 }
 
 .navbar-link:is(:focus, :hover) {
-	color: var(--cherryRed);
-	background-color: var(--base);
+	color: var(--navbar-text-color-focus);
+	background-color: var(--navbar-bg-contrast);
 }
 
 .navbar-logo {
-	background-color: var(--text);
+	background-color: var(--navbar-text-color-focus);
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
-	margin-inline-start: 0.5em;
+	margin-right: 0.5em;
 }
 
 #navbar-toggle {
@@ -207,28 +97,28 @@ h5 {
 	width: 25px;
 	height: 4px;
 	margin: 2px;
-	background-color: var(--text);
+	background-color: var(--navbar-text-color);
 }
 
 #navbar-toggle:is(:focus, :hover) .icon-bar {
-	background-color: var(--text);
+	background-color: var(--navbar-text-color-focus);
 }
 
-#navbar-toggle[aria-expanded='true'] .icon-bar:is(:first-child, :last-child) {
+#navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
 	position: absolute;
 	margin: 0;
 	width: 30px;
 }
 
-#navbar-toggle[aria-expanded='true'] .icon-bar:first-child {
+#navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
 	transform: rotate(45deg);
 }
 
-#navbar-toggle[aria-expanded='true'] .icon-bar:nth-child(2) {
+#navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
 	opacity: 0;
 }
 
-#navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+#navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
 	transform: rotate(-45deg);
 }
 
@@ -242,8 +132,8 @@ h5 {
 	right: 0;
 }
 
-#navbar-toggle[aria-expanded='true']+#navbar-menu {
-	background-color: var(--base);
+#navbar-toggle[aria-expanded="true"]+#navbar-menu {
+	background-color: rgba(0, 0, 0, 0.4);
 	opacity: 1;
 	visibility: visible;
 }
@@ -251,7 +141,7 @@ h5 {
 .navbar-links {
 	list-style: none;
 	position: absolute;
-	background-color: var(--base2);
+	background-color: var(--navbar-bg-color);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -262,32 +152,19 @@ h5 {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-#navbar-toggle[aria-expanded='true']+#navbar-menu .navbar-links {
+#navbar-toggle[aria-expanded="true"]+#navbar-menu .navbar-links {
 	padding: 1em;
 }
-
-.navbar-links {
-	list-style: none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	background-color: var(--base);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-}
-
 
 @media screen and (min-width: 700px) {
 
 	#navbar-toggle,
-	#navbar-toggle[aria-expanded='true'] {
+	#navbar-toggle[aria-expanded="true"] {
 		display: none;
 	}
 
 	#navbar-menu,
-	#navbar-toggle[aria-expanded='true']+#navbar-menu {
+	#navbar-toggle[aria-expanded="true"] #navbar-menu {
 		visibility: visible;
 		opacity: 1;
 		position: static;
@@ -296,7 +173,7 @@ h5 {
 	}
 
 	.navbar-links,
-	#navbar-toggle[aria-expanded='true']+#navbar-menu .navbar-links {
+	#navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
 		margin: 0;
 		padding: 0;
 		box-shadow: none;
