@@ -1,10 +1,14 @@
 :root {
+	--cherryRed: #e52e71;
 	--text: hsl(226deg, 64%, 88%);
+	--base2: hsl(229deg, 19%, 23%);
+	--base1: hsl(232deg, 23%, 18%);
+	--base: hsl(240deg, 21%, 15%);
 	--mantle: hsl(240deg, 21%, 12%);
-	--navbar-bg-color: hsl(240deg, 21%, 15%);
-	--navbar-text-color: hsl(226deg, 64%, 88%);
-	--navbar-text-color-focus: #e52e71;
-	--navbar-bg-contrast: hsl(232deg, 23%, 18%);
+	--navbar-bg-color: hsl(0, 0%, 15%);
+	--navbar-text-color: hsl(0, 0%, 85%);
+	--navbar-text-color-focus: white;
+	--navbar-bg-contrast: hsl(0, 0%, 25%);
 }
 
 * {
@@ -14,18 +18,16 @@
 }
 
 body {
+	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
+	background-attachment: fixed;
+	/* This makes the background fixed */
 	height: 100vh;
 	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.6;
-	/* background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
-	background-attachment: fixed; */
-	color: var(--text);
-	background-color: var(--mantle);
-
 }
 
 .container {
-	max-width: 1800px;
+	max-width: 95%;
 	padding-left: 1.4rem;
 	padding-right: 1.4rem;
 	margin-left: auto;
@@ -36,7 +38,7 @@ body {
 	--navbar-height: 64px;
 	position: fixed;
 	height: var(--navbar-height);
-	background-color: var(--navbar-bg-color);
+	background-color: var(--base);
 	left: 0;
 	right: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -56,7 +58,7 @@ body {
 
 .home-link,
 .navbar-link {
-	color: var(--navbar-text-color);
+	color: var(--text);
 	text-decoration: none;
 	display: flex;
 	font-weight: 400;
@@ -64,7 +66,7 @@ body {
 }
 
 .home-link:is(:focus, :hover) {
-	color: var(--navbar-text-color-focus);
+	color: var(--cherryRed);
 }
 
 .navbar-link {
@@ -75,8 +77,8 @@ body {
 }
 
 .navbar-link:is(:focus, :hover) {
-	color: var(--navbar-text-color-focus);
-	background-color: var(--navbar-bg-contrast);
+	color: var(--cherryRed);
+	background-color: var(--base2);
 }
 
 .navbar-logo {
@@ -148,7 +150,7 @@ body {
 .navbar-links {
 	list-style: none;
 	position: absolute;
-	background-color: var(--navbar-bg-color);
+	background-color: var(--base);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -163,7 +165,7 @@ body {
 	padding: 1em;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 700px) {
 
 	#navbar-toggle,
 	#navbar-toggle[aria-expanded="true"] {

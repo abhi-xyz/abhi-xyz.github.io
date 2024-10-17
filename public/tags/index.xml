@@ -1,30 +1,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>http://localhost:35937/tags/</link>
+	<link>http://localhost:45769/tags/</link>
 	<description>Recent content in Tags on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
-	<lastBuildDate>Thu, 17 Oct 2024 18:32:53 +0530</lastBuildDate>
+	<lastBuildDate>Thu, 17 Oct 2024 20:42:34 +0530</lastBuildDate>
     
-        <atom:link href="http://localhost:35937/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:45769/tags/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
+		<title>Sops Nix2</title>
+		<link>http://localhost:45769/sops-nix2/</link>
+		<pubDate>Thu, 17 Oct 2024 20:42:34 +0530</pubDate>
+		
+		<guid>http://localhost:45769/sops-nix2/</guid>
+		<description>&lt;p&gt;tersjrsdij&lt;/p&gt;
+</description>
+	</item>
+	
+	<item>
 		<title>Sops Nix1</title>
-		<link>http://localhost:35937/sops-nix1/</link>
+		<link>http://localhost:45769/sops-nix1/</link>
 		<pubDate>Thu, 17 Oct 2024 18:32:53 +0530</pubDate>
 		
-		<guid>http://localhost:35937/sops-nix1/</guid>
+		<guid>http://localhost:45769/sops-nix1/</guid>
 		<description></description>
 	</item>
 	
 	<item>
 		<title>Sops Nix</title>
-		<link>http://localhost:35937/sops-nix/</link>
+		<link>http://localhost:45769/sops-nix/</link>
 		<pubDate>Thu, 17 Oct 2024 18:12:59 +0530</pubDate>
 		
-		<guid>http://localhost:35937/sops-nix/</guid>
+		<guid>http://localhost:45769/sops-nix/</guid>
 		<description>&lt;p&gt;sops is a&lt;/p&gt;
 </description>
 	</item>

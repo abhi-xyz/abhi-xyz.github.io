@@ -2,21 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:35937/</loc>
+    <loc>http://localhost:45769/</loc>
+    <lastmod>2024-10-17T20:42:34+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:45769/tags/blog/</loc>
+    <lastmod>2024-10-17T20:42:34+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:45769/sops-nix2/</loc>
+    <lastmod>2024-10-17T20:42:34+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:45769/tags/</loc>
+    <lastmod>2024-10-17T20:42:34+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:45769/sops-nix1/</loc>
     <lastmod>2024-10-17T18:32:53+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:35937/tags/blog/</loc>
-    <lastmod>2024-10-17T18:32:53+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:35937/sops-nix1/</loc>
-    <lastmod>2024-10-17T18:32:53+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:35937/tags/</loc>
-    <lastmod>2024-10-17T18:32:53+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:35937/sops-nix/</loc>
+    <loc>http://localhost:45769/sops-nix/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:35937/categories/</loc>
+    <loc>http://localhost:45769/categories/</loc>
   </url>
 </urlset>
