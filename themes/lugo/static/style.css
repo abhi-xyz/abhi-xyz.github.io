@@ -82,7 +82,7 @@ body {
 }
 
 .navbar-logo {
-	background-color: var(--navbar-text-color-focus);
+	background-color: var(--text);
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
@@ -106,11 +106,11 @@ body {
 	width: 25px;
 	height: 4px;
 	margin: 2px;
-	background-color: var(--navbar-text-color);
+	background-color: var(--text);
 }
 
 #navbar-toggle:is(:focus, :hover) .icon-bar {
-	background-color: var(--navbar-text-color-focus);
+	background-color: var(--text);
 }
 
 #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
