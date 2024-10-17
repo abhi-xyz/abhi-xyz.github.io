@@ -9,10 +9,10 @@ in
       clang
       llvmPackages.bintools
 
-      tailwindcss
-      tailwindcss-language-server
+      # tailwindcss
+      # tailwindcss-language-server
 
-      deno
+      # deno
       go
       hugo
 
