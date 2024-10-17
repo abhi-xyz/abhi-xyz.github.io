@@ -21,7 +21,6 @@ node_modules
 builds
 package-lock.json
 .hugo_build.lock
-public
 resources
 */.DS_Store
 node_modules
