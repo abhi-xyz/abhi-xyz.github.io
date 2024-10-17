@@ -10,6 +10,8 @@ In this post, we’ll explore how to set up SOPs with Nix to create a robust dev
 
 ### Step 1 - installing sops via Flakes
 
+To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
+
 ```nix
 {
   inputs.sops-nix.url = "github:Mic92/sops-nix";

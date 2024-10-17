@@ -8,7 +8,8 @@
 	<script src="script.js" defer></script>
 	<link rel="icon" href="/favicon.ico">
 	<meta name="description" content="SOPs and Nix: A Step-by-Step Guide In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
-Step 1 - installing sops via Flakes { inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;; # optional, not necessary for the module #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;; outputs = { self, nixpkgs, sops-nix }: { # change `yourhostname` to your actual hostname nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem { # customize to your system system = &#34;x86_64-linux&#34;; modules = [ .">
+Step 1 - installing sops via Flakes To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
+{ inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;; # optional, not necessary for the module #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;; outputs = { self, nixpkgs, sops-nix }: { # change `yourhostname` to your actual hostname nixosConfigurations.">
 	<meta name="keywords" content="blog">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
@@ -22,6 +23,7 @@ Step 1 - installing sops via Flakes { inputs.sops-nix.url = &#34;github:Mic92/so
 <h1 id="sops-and-nix-a-step-by-step-guide">SOPs and Nix: A Step-by-Step Guide</h1>
 <p>In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.</p>
 <h3 id="step-1---installing-sops-via-flakes">Step 1 - installing sops via Flakes</h3>
+<p>To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  inputs<span style="color:#f92672">.</span>sops-nix<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;github:Mic92/sops-nix&#34;</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># optional, not necessary for the module</span>
