@@ -35,7 +35,7 @@ body {
 }
 
 #navbar {
-	--navbar-height: 64px;
+	--navbar-height: 74px;
 	position: fixed;
 	height: var(--navbar-height);
 	background-color: var(--base);
