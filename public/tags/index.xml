@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+	<title>Abhinandh S</title>
+	<link>http://localhost:37031/tags/</link>
+	<description>Recent content in Tags on Abhinandh S</description>
+	<generator>Hugo -- gohugo.io</generator>
+	<language>en-us</language>
+    
+        <atom:link href="http://localhost:37031/tags/index.xml" rel="self" type="application/rss+xml" />
+	
+	
+	<item>
+		<title>Sops Nix</title>
+		<link>http://localhost:37031/sops-nix/</link>
+		<pubDate>Thu, 17 Oct 2024 15:55:22 +0530</pubDate>
+		
+		<guid>http://localhost:37031/sops-nix/</guid>
+		<description>&lt;h1 id=&#34;so&#34;&gt;So&lt;/h1&gt;
+</description>
+	</item>
+	
+	</channel>
+</rss>
