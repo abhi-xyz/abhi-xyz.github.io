@@ -32,7 +32,11 @@ To start, add sops-nix as a Flake input and include the Sops module in your NixO
 }
 ```
 
-### Step 2 - Generate an age key for yourself
+Replace yourhostname with the actual hostname of your machine.
+
+### Step 2 - Generate an Age Key
+
+Next, you need to generate an age key for encryption:
 
 ```fish
 
