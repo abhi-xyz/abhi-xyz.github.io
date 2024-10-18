@@ -1,14 +1,13 @@
 +++
-title = 'Sops Nix'
+title = 'Sops Nix: A Step-by-Step Guide'
 tags = ['blog']
 date = 2024-10-17T18:12:59+05:30
 +++
 
-# SOPs and Nix: A Step-by-Step Guide
 
 In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
 
-### Step 1 - installing sops via Flakes
+## Step 1 - installing sops via Flakes
 
 To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
 
@@ -60,7 +59,7 @@ creation_rules:
 
 ```
 
-** Step 4 - Create a sops file
+## Step 4 - Create a sops file
 
 ```fish
 

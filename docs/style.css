@@ -18,13 +18,22 @@
 }
 
 body {
-	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
-	background-attachment: fixed;
+	/*	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
+	background-attachment: fixed; */
 	/* This makes the background fixed */
+	background-color: var(--mantle);
 	height: 100vh;
 	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.6;
+	color: var(--text);
 }
+
+main {
+	max-width: 800px;
+	margin: auto;
+}
+
+;
 
 p {}
 
@@ -38,7 +47,7 @@ p {}
 
 #navbar {
 	--navbar-height: 74px;
-	position: fixed;
+	/*	position: fixed; */
 	height: var(--navbar-height);
 	background-color: var(--base);
 	left: 0;

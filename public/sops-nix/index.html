@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Sops Nix | Abhinandh S</title>
-	<link rel="canonical" href="https://www.abhinandhs.in/">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<title>Sops Nix: A Step-by-Step Guide | Abhinandh S</title>
+	<link rel="canonical" href="http://localhost:1313/">
 	<link rel='alternate' type='application/rss+xml' title="Abhinandh S RSS" href='/index.xml'>
 	<link rel='stylesheet' type='text/css' href='/style.css'>
 	<script src="script.js" defer></script>
+	
 	<link rel="icon" href="/favicon.ico">
-	<meta name="description" content="SOPs and Nix: A Step-by-Step Guide In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
+	<meta name="description" content="In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
 Step 1 - installing sops via Flakes To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
 1{ 2 inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;; 3 # optional, not necessary for the module 4 #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;; 5 6 outputs = { self, nixpkgs, sops-nix }: { 7 # change `yourhostname` to your actual hostname 8 nixosConfigurations.">
+	
 	<meta name="keywords" content="blog">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta charset="utf-8">
 </head>
-<body>
-<main>
-<header><h1 id="tag_Sops Nix">Sops Nix</h1></header>
-<article>
 
-<h1 id="sops-and-nix-a-step-by-step-guide">SOPs and Nix: A Step-by-Step Guide</h1>
-<p>In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.</p>
-<h3 id="step-1---installing-sops-via-flakes">Step 1 - installing sops via Flakes</h3>
+<body>
+	<header id="navbar">
+    <nav class="navbar-container container">
+        <a href="/" class="home-link">
+            <div class="navbar-logo"></div>
+            Abhinandh S
+        </a>
+        <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu"
+            aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div id="navbar-menu" aria-labelledby="navbar-toggle">
+            <ul class="navbar-links">
+                <li class="navbar-item"><a class="navbar-link" href="/about">About</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/careers">Careers</a></li>
+                <li class="navbar-item"><a class="navbar-link" href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+	<main>
+		<header>
+			<h1 id="tag_Sops Nix: A Step-by-Step Guide">Sops Nix: A Step-by-Step Guide</h1>
+		</header>
+		<article>
+			
+			<p>In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.</p>
+<h2 id="step-1---installing-sops-via-flakes">Step 1 - installing sops via Flakes</h2>
 <p>To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:</p>
 <div class="highlight my-codeblock" id="my-codeblock"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1</span><span>{
 </span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2</span><span>  inputs<span style="color:#89dceb;font-weight:bold">.</span>sops-nix<span style="color:#89dceb;font-weight:bold">.</span>url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;github:Mic92/sops-nix&#34;</span>;
@@ -81,7 +109,7 @@ Step 1 - installing sops via Flakes To start, add sops-nix as a Flake input and 
 </span></span><span style="display:flex;"><span>      - <span style="color:#6c7086;font-style:italic">*user</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>** Step 4 - Create a sops file</p>
+</div><h2 id="step-4---create-a-sops-file">Step 4 - Create a sops file</h2>
 <div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
@@ -236,14 +264,16 @@ Step 1 - installing sops via Flakes To start, add sops-nix as a Flake input and 
 </div>
 </div><p>F</p>
 
-
-<div style="clear:both" class=taglist>Related<br><a id="tag_blog" href="https://www.abhinandhs.in/tags/blog">Blog</a></div>
+			
+			<div style="clear:both" class=taglist>Related<br><a id="tag_blog" href="http://localhost:1313/tags/blog">Blog</a></div>
 </article>
-</main>
-
-<footer>
-	<a href="https://www.abhinandhs.in/">https://www.abhinandhs.in/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
-</footer>
-
+	</main>
+	
+	<footer>
+		<a href="http://localhost:1313/">http://localhost:1313/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed"
+				title="Subscribe via RSS for updates."></a>
+	</footer>
+	
 </body>
+
 </html>
