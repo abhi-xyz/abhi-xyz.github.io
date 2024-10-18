@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<title>Sops Nix | My New Hugo Site</title>
-	<link rel="canonical" href="http://localhost:1313/">
-	<link rel='alternate' type='application/rss+xml' title="My New Hugo Site RSS" href='/index.xml'>
+<head>
+	<title>Sops Nix | Abhinandh S</title>
+	<link rel="canonical" href="https://www.abhinandhs.in/">
+	<link rel='alternate' type='application/rss+xml' title="Abhinandh S RSS" href='/index.xml'>
 	<link rel='stylesheet' type='text/css' href='/style.css'>
 	<script src="script.js" defer></script>
 	<link rel="icon" href="/favicon.ico">
-	<meta name="description" content="sops is a">
+	<meta name="description" content="SOPs and Nix: A Step-by-Step Guide In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
+Step 1 - installing sops via Flakes To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
+1{ 2 inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;; 3 # optional, not necessary for the module 4 #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;; 5 6 outputs = { self, nixpkgs, sops-nix }: { 7 # change `yourhostname` to your actual hostname 8 nixosConfigurations.">
+	<meta name="keywords" content="blog">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta charset="utf-8">
@@ -17,17 +20,229 @@
 <header><h1 id="tag_Sops Nix">Sops Nix</h1></header>
 <article>
 
-<p>sops is a</p>
-
-
-<div id="nextprev"><a href="/sops-nix1/"><div id="nextart">Next:<br>Sops Nix1</div></a>
+<h1 id="sops-and-nix-a-step-by-step-guide">SOPs and Nix: A Step-by-Step Guide</h1>
+<p>In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.</p>
+<h3 id="step-1---installing-sops-via-flakes">Step 1 - installing sops via Flakes</h3>
+<p>To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:</p>
+<div class="highlight my-codeblock" id="my-codeblock"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2</span><span>  inputs<span style="color:#89dceb;font-weight:bold">.</span>sops-nix<span style="color:#89dceb;font-weight:bold">.</span>url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;github:Mic92/sops-nix&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3</span><span>  <span style="color:#6c7086;font-style:italic"># optional, not necessary for the module</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4</span><span>  <span style="color:#6c7086;font-style:italic">#inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 6</span><span>  outputs <span style="color:#89dceb;font-weight:bold">=</span> { self<span style="color:#89dceb;font-weight:bold">,</span> nixpkgs<span style="color:#89dceb;font-weight:bold">,</span> sops-nix }: {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 7</span><span>    <span style="color:#6c7086;font-style:italic"># change `yourhostname` to your actual hostname</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 8</span><span>    nixosConfigurations<span style="color:#89dceb;font-weight:bold">.</span>yourhostname <span style="color:#89dceb;font-weight:bold">=</span> nixpkgs<span style="color:#89dceb;font-weight:bold">.</span>lib<span style="color:#89dceb;font-weight:bold">.</span>nixosSystem {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 9</span><span>      <span style="color:#6c7086;font-style:italic"># customize to your system</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">10</span><span>      system <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;x86_64-linux&#34;</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">11</span><span>      modules <span style="color:#89dceb;font-weight:bold">=</span> [
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">12</span><span>        <span style="color:#94e2d5">./configuration.nix</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">13</span><span>        sops-nix<span style="color:#89dceb;font-weight:bold">.</span>nixosModules<span style="color:#89dceb;font-weight:bold">.</span>sops
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">14</span><span>      ];
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">15</span><span>    };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16</span><span>  };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">17</span><span>}
+</span></span></code></pre></div><p>Replace yourhostname with the actual hostname of your machine.</p>
+<h3 id="step-2---generate-an-age-key">Step 2 - Generate an Age Key</h3>
+<p>Next, you need to generate an age key for encryption:</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#89b4fa">mkdir</span> <span style="color:#89b4fa">-p</span> ~/.config/sops/age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#89b4fa">age-keygen</span> <span style="color:#89b4fa">-o</span> ~/.config/sops/age/keys.txt
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>** Step 3 - create a .sops.yaml file at the root of your nix config</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">keys</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#6c7086;font-style:italic">&amp;user</span> age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">creation_rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#cba6f7">path_regex</span>: secrets/secrets.yaml$
+</span></span><span style="display:flex;"><span>    <span style="color:#cba6f7">key_groups</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#cba6f7">age</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#6c7086;font-style:italic">*user</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>** Step 4 - Create a sops file</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f5e0dc">$ </span>sops secrets/secrets.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># Files must always have a string value</span>
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">example-key</span>: example-value
+</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># Nesting the key results in the creation of directories.</span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># These directories will be owned by root:keys and have permissions 0751.</span>
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">myservice</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#cba6f7">my_subdir</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#cba6f7">my_secret</span>: password1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">38
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f5e0dc">$ </span>cat secrets/secrets.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#89b4fa">example-key</span>: ENC<span style="color:#89dceb;font-weight:bold">[</span>AES256_GCM,data:AB8XMyid4P7mXdjj+<span style="color:#f5e0dc">A</span><span style="color:#89dceb;font-weight:bold">==</span>,iv:RRsZC+V+3w22pOi/2TCjBYn/<span style="color:#f5e0dc">0OYsNGCu5CT1ZBSKGi0</span><span style="color:#89dceb;font-weight:bold">=</span>,tag:<span style="color:#f5e0dc">zT5mlujrSuA6KKxLKL8CMQ</span><span style="color:#89dceb;font-weight:bold">==</span>,<span style="color:#89dceb">type</span>:str<span style="color:#89dceb;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic">#ENC[AES256_GCM,data:59QWbzCQCP7kLdhyjFOZe503MgegN0kv505PBNHwjp6aYztDHwx2N9+A1Bz6G/vWYo+4LpBo8/s=,iv:89q3ZXgM1wBUg5G29ROor3VXrO3QFGCvfwDoA3+G14M=,tag:hOSnEZ6DKycnF37LCXOjzg==,type:comment]
+</span></span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic">#ENC[AES256_GCM,data:kUuJCkDE9JT9C+kdNe0CSB3c+gmgE4We1OoX4C1dWeoZCw/o9/09CzjRi9eOBUEL0P1lrt+g6V2uXFVq4n+M8UPGUAbRUr3A,iv:nXJS8wqi+ephoLynm9Nxbqan0V5dBstctqP0WxniSOw=,tag:ALx396Z/IPCwnlqH//Hj3g==,type:comment]
+</span></span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"></span><span style="color:#89b4fa">myservice</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">my_subdir</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#89b4fa">my_secret</span>: ENC<span style="color:#89dceb;font-weight:bold">[</span>AES256_GCM,data:hcRk5ERw60G5,iv:3Ur6iH1Yu0eu2otcEv+<span style="color:#f5e0dc">hGRF5kTaH6HSlrofJ5JXvewA</span><span style="color:#89dceb;font-weight:bold">=</span>,tag:<span style="color:#f5e0dc">hpECXFnMhGNnAxxzuGW5jg</span><span style="color:#89dceb;font-weight:bold">==</span>,<span style="color:#89dceb">type</span>:str<span style="color:#89dceb;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#89b4fa">sops</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">kms</span>: <span style="color:#89dceb;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">gcp_kms</span>: <span style="color:#89dceb;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">azure_kv</span>: <span style="color:#89dceb;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">hc_vault</span>: <span style="color:#89dceb;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">age</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#89b4fa">- recipient</span>: age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
+</span></span><span style="display:flex;"><span>          <span style="color:#89b4fa">enc</span>: <span style="color:#89dceb;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">-----BEGIN</span> AGE ENCRYPTED FILE-----
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0</span>+IFgyNTUxOSB1dFYvSTRHa3IwTVpuZjEz
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">SDZZQnc5a0dGVGEzNXZmNEY5NlZDbVgyNVU0Clo3ZC9MRGp4SHhLUTVCeWlOUUxS</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">MEtPdW4rUHhjdFB6bFhyUXRQTkRpWjAKLS0tIDVTbWU2V3dJNUZrK1A5U0c5bkc0</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">S3VINUJYc3VKcjBZbHVqcGJBSlVPZWcKqPXE01ienWDbTwxo</span>+z4dNAizR3t6uTS+
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">KbmSOK1v61Ri0bsM5HItiMP</span>+fE3VCyhqMBmPdcrR92+<span style="color:#f5e0dc">3oBmiSFnXPA</span><span style="color:#89dceb;font-weight:bold">==</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">-----END</span> AGE ENCRYPTED FILE-----
+</span></span><span style="display:flex;"><span>        <span style="color:#89b4fa">- recipient</span>: age18jtffqax5v0t6ehh4ypaefl4mfhcrhn6ek3p80mhfp9psx6pd35qew2ww3
+</span></span><span style="display:flex;"><span>          <span style="color:#89b4fa">enc</span>: <span style="color:#89dceb;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">-----BEGIN</span> AGE ENCRYPTED FILE-----
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0</span>+IFgyNTUxOSBzT3FxcDEzaFRQOVFpNkg2
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">Skw4WEIxZzNTWkNBaDRhcUN2ejY4QTAwTERvCkx2clIzT2wyaFJZcjl0RkFXL2p6</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">enhqVEZ3ZkNKUU5jTlUxRC9Lb090TzAKLS0tIDBEaG00RFJDZ3ZVVjBGUWJkRHdQ</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">YkpudG43eURPVWJUejd3Znk5Z29lWlkK0cIngn2qdmiOE5rHOHxTRcjfZYuY3Ej7</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">Yy7nYxMwTdYsm</span>/V6Lp2xm8hvSzBEIFL+<span style="color:#f5e0dc">JXnSTSwSHnCIfgle5BRbug</span><span style="color:#89dceb;font-weight:bold">==</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#89b4fa">-----END</span> AGE ENCRYPTED FILE-----
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">lastmodified</span>: <span style="color:#a6e3a1">&#34;2021-11-20T16:21:10Z&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">mac</span>: ENC<span style="color:#89dceb;font-weight:bold">[</span>AES256_GCM,data:5ieT/yv1GZfZFr+OAZ/DBF+6DJHijRXpjNI2kfBun3KxDkyjiu/OFmAbsoVFY/<span style="color:#f5e0dc">y6YCT3ofl4Vwa56Veo3iYj4njgxyLpLuD1B6zkMaNXaPywbAhuMho7bDGEJZHrlYOUNLdBqW2ytTuFA095IncXE8CFGr38A2hfjcputdHk4R4</span><span style="color:#89dceb;font-weight:bold">=</span>,iv:<span style="color:#f5e0dc">UcBXWtaquflQFNDphZUqahADkeege5OjUY38pLIcFkU</span><span style="color:#89dceb;font-weight:bold">=</span>,tag:yy+HSMm+xtX+<span style="color:#f5e0dc">vHO78nej5w</span><span style="color:#89dceb;font-weight:bold">==</span>,<span style="color:#89dceb">type</span>:str<span style="color:#89dceb;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">pgp</span>: <span style="color:#89dceb;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">unencrypted_suffix</span>: _unencrypted
+</span></span><span style="display:flex;"><span>    <span style="color:#89b4fa">version</span>: <span style="color:#fab387">3</span>.<span style="color:#fab387">7</span>.<span style="color:#fab387">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  imports <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#94e2d5">&lt;sops-nix/modules/sops&gt;</span> ];
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This will add secrets.yml to the nix store</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># You can avoid this by adding a string to the full path instead, i.e.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># sops.defaultSopsFile = &#34;/root/.sops/secrets/example.yaml&#34;;</span>
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>defaultSopsFile <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#94e2d5">./secrets/example.yaml</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This will automatically import SSH keys as age keys</span>
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>age<span style="color:#89dceb;font-weight:bold">.</span>sshKeyPaths <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;/etc/ssh/ssh_host_ed25519_key&#34;</span> ];
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This is using an age key that is expected to already be in the filesystem</span>
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>age<span style="color:#89dceb;font-weight:bold">.</span>keyFile <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;/var/lib/sops-nix/key.txt&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This will generate a new key if the key specified above does not exist</span>
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>age<span style="color:#89dceb;font-weight:bold">.</span>generateKey <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#f9e2af">true</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This is the actual specification of the secrets.</span>
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>secrets<span style="color:#89dceb;font-weight:bold">.</span>example-key <span style="color:#89dceb;font-weight:bold">=</span> {};
+</span></span><span style="display:flex;"><span>  sops<span style="color:#89dceb;font-weight:bold">.</span>secrets<span style="color:#89dceb;font-weight:bold">.</span><span style="color:#a6e3a1">&#34;myservice/my_subdir/my_secret&#34;</span> <span style="color:#89dceb;font-weight:bold">=</span> {};
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>F</p>
 
+
+<div style="clear:both" class=taglist>Related<br><a id="tag_blog" href="https://www.abhinandhs.in/tags/blog">Blog</a></div>
 </article>
 </main>
 
 <footer>
-	<a href="http://localhost:1313/">http://localhost:1313/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+	<a href="https://www.abhinandhs.in/">https://www.abhinandhs.in/</a><br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
 </footer>
 
 </body>
