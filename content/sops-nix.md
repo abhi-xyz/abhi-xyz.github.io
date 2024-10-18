@@ -4,14 +4,13 @@ tags = ['blog']
 date = 2024-10-17T18:12:59+05:30
 +++
 
+In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.
 
-In this post, we’ll explore how to set up SOPs with Nix to create a robust development environment.
+## Step 1 - Installing Sops via Flakes
 
-## Step 1 - installing sops via Flakes
+To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
 
-To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
-
-```nix { .my_codeblock }
+```nix { .my_codeblock hl_Lines="2 6 13"}
 {
   inputs.sops-nix.url = "github:Mic92/sops-nix";
   # optional, not necessary for the module
@@ -35,20 +34,22 @@ Replace yourhostname with the actual hostname of your machine.
 
 ## Step 2 - Generate an Age Key
 
-Next, you need to generate an age key for encryption:
+Next, you need to generate an age key for encryption, you can use gpg keys but age is considered more safe and secure:
 
 ```fish { .my_codeblock }
-
 mkdir -p ~/.config/sops/age
 
 age-keygen -o ~/.config/sops/age/keys.txt
 
 ```
 
-** Step 3 - create a .sops.yaml file at the root of your nix config
+## Step 3 - create a .sops.yaml file at the root of your nix config
+
+* Put the age public key which we use to encrypt the files in sops config file .sops.yaml
+* Then the relative path to secrets files
+* and key groups
 
 ```yaml { .my_codeblock }
-
 keys:
   - &user age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
 creation_rules:
@@ -62,8 +63,7 @@ creation_rules:
 ## Step 4 - Create a sops file
 
 ```fish { .my_codeblock }
-
-$ sops secrets/secrets.yaml
+ sops secrets/secrets.yaml
 
 ```
 
