@@ -11,7 +11,7 @@ In this post, we’ll explore how to set up SOPs with Nix to create a robust dev
 
 To start, add sops-nix as a Flake input and include the Sops module in your NixOS configuration. Here’s a basic example:
 
-```nix {style="catppuccin-mocha" class="my-codeblock" id="my-codeblock" lineNos=inline tabWidth=2}
+```nix { .my_codeblock }
 {
   inputs.sops-nix.url = "github:Mic92/sops-nix";
   # optional, not necessary for the module
@@ -33,11 +33,11 @@ To start, add sops-nix as a Flake input and include the Sops module in your NixO
 
 Replace yourhostname with the actual hostname of your machine.
 
-### Step 2 - Generate an Age Key
+## Step 2 - Generate an Age Key
 
 Next, you need to generate an age key for encryption:
 
-```fish
+```fish { .my_codeblock }
 
 mkdir -p ~/.config/sops/age
 
@@ -47,7 +47,7 @@ age-keygen -o ~/.config/sops/age/keys.txt
 
 ** Step 3 - create a .sops.yaml file at the root of your nix config
 
-```yaml
+```yaml { .my_codeblock }
 
 keys:
   - &user age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
@@ -61,13 +61,13 @@ creation_rules:
 
 ## Step 4 - Create a sops file
 
-```fish
+```fish { .my_codeblock }
 
 $ sops secrets/secrets.yaml
 
 ```
 
-```yaml
+```yaml { .my_codeblock }
 
 # Files must always have a string value
 example-key: example-value
@@ -79,9 +79,10 @@ myservice:
 
 ```
 
-```fish
+* Check the secrets.yaml file
 
-$ cat secrets/secrets.yaml
+```fish { .my_codeblock }
+cat secrets/secrets.yaml
 
 example-key: ENC[AES256_GCM,data:AB8XMyid4P7mXdjj+A==,iv:RRsZC+V+3w22pOi/2TCjBYn/0OYsNGCu5CT1ZBSKGi0=,tag:zT5mlujrSuA6KKxLKL8CMQ==,type:str]
 #ENC[AES256_GCM,data:59QWbzCQCP7kLdhyjFOZe503MgegN0kv505PBNHwjp6aYztDHwx2N9+A1Bz6G/vWYo+4LpBo8/s=,iv:89q3ZXgM1wBUg5G29ROor3VXrO3QFGCvfwDoA3+G14M=,tag:hOSnEZ6DKycnF37LCXOjzg==,type:comment]
@@ -120,8 +121,8 @@ sops:
     version: 3.7.1
 
 ```
-
-```nix
+## Step -5
+```nix { .my_codeblock }
 {
   imports = [ <sops-nix/modules/sops> ];
   # This will add secrets.yml to the nix store

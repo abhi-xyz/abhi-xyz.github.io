@@ -17,6 +17,10 @@
 	padding: 0;
 }
 
+.my_codeblock {
+	padding: 10px;
+}
+
 body {
 	/*	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
 	background-attachment: fixed; */
