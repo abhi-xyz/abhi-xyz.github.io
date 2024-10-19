@@ -1,0 +1,14 @@
+<footer>
+    <div>
+        {{- if .Param "showrss" }}<br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em"
+                alt="RSS Feed" title="Subscribe via RSS for updates."></a>{{ end }}
+
+        <p>
+            {{ .Site.Copyright }}
+            <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution">Some rights
+                reserved</a>;
+            please attribute properly and link back.
+        </p>
+        <br>
+    </div>
+</footer>

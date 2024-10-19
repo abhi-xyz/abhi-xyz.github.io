@@ -1,4 +1,17 @@
-{{ define "title" -}}
-{{ .Title }}
-
+{{ define "main" -}}
+{{ .Content }}
+<h2>About me</h2>
+<p>I am Abhinandh S and this is my webpage. Thanks for stopping by! I’ve been writing about some things and other some
+  thing since 2024. I'm a technology enthusiast with a passion for programming in Rust and Linux systems. Here, you'll
+  find a variety of content, including tech musings, project updates, and random ideas and discoveries. This space is
+  where I share the less formal, yet intriguing aspects of my work and interests.</p>
+<br>
+<h2>Recent post</h2>
+<ul>
+  {{ range .Site.RegularPages }}
+  <li>
+    <h4><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h4>
+    {{ end }}
+  </li>
+</ul>
 {{- end }}

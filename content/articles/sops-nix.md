@@ -66,7 +66,7 @@ creation_rules:
  sops secrets/secrets.yaml
 
 ```
-
+It will look like this
 ```yaml { .my_codeblock hl_Lines="0"}
 
 # Files must always have a string value

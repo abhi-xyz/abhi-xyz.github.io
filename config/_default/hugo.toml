@@ -1,9 +1,9 @@
 baseURL = 'https://abhinandhs.in/'
 languageCode = 'en-us'
 title = 'Abhinandh S'
-
+copyright = '© 2024-25 Abhinandh S.'
 theme = 'lugo'
-
+favicon = '/images/favicon.png'
 cleanDestinationDir = true
 
 
