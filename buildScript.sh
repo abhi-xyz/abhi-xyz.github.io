@@ -1,4 +1,3 @@
-#!/usr/bin/env fish
-rm -r docs
-cp -r public docs
+#!/usr/bin/env bash
+
 git add -A && git c && git push
