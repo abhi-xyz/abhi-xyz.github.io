@@ -2,18 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:44741/</loc>
+    <loc>https://www.abhinandhs.in/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:44741/tags/blog/</loc>
+    <loc>https://www.abhinandhs.in/articles/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:44741/sops-nix/</loc>
+    <loc>https://www.abhinandhs.in/tags/blog/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:44741/tags/</loc>
+    <loc>https://www.abhinandhs.in/articles/sops-nix/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:44741/categories/</loc>
+    <loc>https://www.abhinandhs.in/tags/</loc>
+    <lastmod>2024-10-17T18:12:59+05:30</lastmod>
+  </url><url>
+    <loc>https://www.abhinandhs.in/categories/</loc>
   </url>
 </urlset>
