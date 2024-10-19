@@ -58,7 +58,7 @@ pre code {
 
 
 body {
-	background-color: var(--mantle);
+	background-color: var(--crust);
 	height: 100vh;
 	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	font-family: Helvetica, Arial, sans-serif;
