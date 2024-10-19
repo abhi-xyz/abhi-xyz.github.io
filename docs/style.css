@@ -1,14 +1,13 @@
 :root {
-	--cherryRed: #e52e71;
+	--cherryRed: hsl(338deg, 78%, 54%);
+	--red: hsl(343deg, 81%, 75%);
+	--teal: hsl(170deg, 57%, 73%);
+	--lavender: hsl(232deg, 97%, 85%);
 	--text: hsl(226deg, 64%, 88%);
 	--base2: hsl(229deg, 19%, 23%);
 	--base1: hsl(232deg, 23%, 18%);
 	--base: hsl(240deg, 21%, 15%);
 	--mantle: hsl(240deg, 21%, 12%);
-	--navbar-bg-color: hsl(0, 0%, 15%);
-	--navbar-text-color: hsl(0, 0%, 85%);
-	--navbar-text-color-focus: white;
-	--navbar-bg-contrast: hsl(0, 0%, 25%);
 }
 
 * {
@@ -17,14 +16,27 @@
 	padding: 0;
 }
 
-.my_codeblock {
-	padding: 10px;
+
+pre {
+	border: 1px solid var(--base2);
+	border-radius: 8px;
+	background-color: var(--base2);
+	font-family: monospace;
+	overflow-x: scroll;
+	max-width: 100%;
 }
 
+pre code {
+	min-width: 35px;
+	display: block;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+	font-family: monospace;
+	font-size: 0.9rem;
+}
+
+
 body {
-	/*	background-image: radial-gradient(circle at 80% 110%, #e52e71 10px, var(--base), var(--mantle));
-	background-attachment: fixed; */
-	/* This makes the background fixed */
 	background-color: var(--mantle);
 	height: 100vh;
 	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
@@ -32,6 +44,28 @@ body {
 	line-height: 1.6;
 	color: var(--text);
 }
+
+p {
+	padding: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	padding: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: var(--lavender);
+}
+
+a:hover {
+	color: var(--teal);
+}
+
 
 main {
 	max-width: 800px;

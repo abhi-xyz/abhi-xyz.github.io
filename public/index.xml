@@ -1,31 +1,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>https://www.abhinandhs.in/</link>
+	<link>http://localhost:1313/</link>
 	<description>Recent content on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<lastBuildDate>Sat, 19 Oct 2024 09:10:47 +0530</lastBuildDate>
     
-        <atom:link href="https://www.abhinandhs.in/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
 		<title>How to Set Up GoDaddy Domain With GitHub Pages</title>
-		<link>https://www.abhinandhs.in/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
+		<link>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
 		<pubDate>Sat, 19 Oct 2024 09:10:47 +0530</pubDate>
 		
-		<guid>https://www.abhinandhs.in/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
+		<guid>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
 		<description>&lt;h1 id=&#34;1&#34;&gt;1&lt;/h1&gt;
 </description>
 	</item>
 	
 	<item>
 		<title>Sops Nix: A Step-by-Step Guide</title>
-		<link>https://www.abhinandhs.in/articles/sops-nix/</link>
+		<link>http://localhost:1313/articles/sops-nix/</link>
 		<pubDate>Thu, 17 Oct 2024 18:12:59 +0530</pubDate>
 		
-		<guid>https://www.abhinandhs.in/articles/sops-nix/</guid>
+		<guid>http://localhost:1313/articles/sops-nix/</guid>
 		<description>&lt;p&gt;In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.&lt;/p&gt;
 &lt;h2 id=&#34;step-1---installing-sops-via-flakes&#34;&gt;Step 1 - Installing Sops via Flakes&lt;/h2&gt;
 &lt;p&gt;To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:&lt;/p&gt;
@@ -263,8 +263,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;F&lt;/p&gt;
-</description>
+&lt;/div&gt;</description>
 	</item>
 	
 	</channel>
