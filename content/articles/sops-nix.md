@@ -1,6 +1,6 @@
 +++
 title = 'Sops Nix: A Step-by-Step Guide'
-tags = ['blog']
+tags = ['nix', 'nixos', 'linux']
 date = 2024-10-17T18:12:59+05:30
 +++
 
