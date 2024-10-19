@@ -1,7 +1,7 @@
 +++
 title = 'How to Set Up GoDaddy Domain With GitHub Pages'
 date = 2024-10-19T09:10:47+05:30
-tags = ['blog', 'github-pages']
+tags = ['all', 'github-pages']
 +++
 
 Congrats! You’ve finally bought yourself a domain, and now you're ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.
@@ -32,8 +32,8 @@ Now that your GitHub Pages site is live, the next step is to point your custom G
 1. Log in to your [GoDaddy account](https://www.godaddy.com/).
 2. Under **My Products**, find your domain and click DNS to manage its DNS settings.
 3. Add the following entries in the DNS management settings:
-![add these entries in GoDaddy's DNS management settings](images/01-godaddy-dns-management.avif)
 
+![add these entries in GoDaddy's DNS management settings](images/01-godaddy-dns-management.avif)
 * Type: A
 * Name: @
 * Value: 185.199.108.153 (Values might change so refer this [instructions](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain) and put aprropriate values.)
@@ -41,7 +41,6 @@ Now that your GitHub Pages site is live, the next step is to point your custom G
 (Repeat this for all four IPs: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153)
 
   * TTL: 600 seconds (default is fine)
-
 
   4. Add a CNAME record as well: (optional if you want to set www with yourdomain.com. ie, www.yourdomain.com)
 
@@ -52,19 +51,22 @@ Now that your GitHub Pages site is live, the next step is to point your custom G
 
   Save the changes.
 
-
 # Step 3: Configuring a Custom Domain in GitHub Pages
 
   Once you’ve set up the DNS records in GoDaddy, go back to your GitHub repository.
 
   Head to Settings > Pages.
-![github-pages](images/01-github-pages.avif)
-  Scroll down to the Custom Domain section.
-![github-pages settings](images/01-github-pages-settings.avif)
-  Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
-  GitHub will automatically create a CNAME file in the root directory of your repository. This file tells GitHub that your website is linked to this custom domain.
-![generated CNAME file in root](images/01-docs-folder.avif)
 
+![github-pages](images/01-github-pages.avif)
+
+Scroll down to the Custom Domain section.
+
+![github-pages settings](images/01-github-pages-settings.avif)
+
+Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
+  GitHub will automatically create a CNAME file in the root directory of your repository. This file tells GitHub that your website is linked to this custom domain.
+
+![generated CNAME file in root](images/01-docs-folder.avif)
 
   After adding the domain, GitHub Pages will take a few minutes to process the changes.
 

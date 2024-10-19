@@ -1,14 +1,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>http://localhost:39781/</link>
-	<description>Recent content on Abhinandh S</description>
+	<link>http://localhost:39781/tags/all/</link>
+	<description>Recent content in All on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<copyright>© 2024-25 Abhinandh S.</copyright>
 	<lastBuildDate>Sat, 19 Oct 2024 09:10:47 +0530</lastBuildDate>
     
-        <atom:link href="http://localhost:39781/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:39781/tags/all/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
@@ -37,9 +37,9 @@ ie, your repository name must be your-username.github.io.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Log in to your &lt;a href=&#34;https://www.godaddy.com/&#34;&gt;GoDaddy account&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Under &lt;strong&gt;My Products&lt;/strong&gt;, find your domain and click DNS to manage its DNS settings.&lt;/li&gt;
-&lt;li&gt;Add the following entries in the DNS management settings:
-&lt;img src=&#34;images/01-godaddy-dns-management.avif&#34; alt=&#34;add these entries in GoDaddy&amp;rsquo;s DNS management settings&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Add the following entries in the DNS management settings:&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-godaddy-dns-management.avif&#34; alt=&#34;add these entries in GoDaddy&amp;rsquo;s DNS management settings&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Type: A&lt;/li&gt;
 &lt;li&gt;Name: @&lt;/li&gt;
@@ -61,13 +61,13 @@ ie, your repository name must be your-username.github.io.&lt;/p&gt;
 &lt;p&gt;Save the changes.&lt;/p&gt;
 &lt;h1 id=&#34;step-3-configuring-a-custom-domain-in-github-pages&#34;&gt;Step 3: Configuring a Custom Domain in GitHub Pages&lt;/h1&gt;
 &lt;p&gt;Once you’ve set up the DNS records in GoDaddy, go back to your GitHub repository.&lt;/p&gt;
-&lt;p&gt;Head to Settings &amp;gt; Pages.
-&lt;img src=&#34;images/01-github-pages.avif&#34; alt=&#34;github-pages&#34;&gt;
-Scroll down to the Custom Domain section.
-&lt;img src=&#34;images/01-github-pages-settings.avif&#34; alt=&#34;github-pages settings&#34;&gt;
-Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
-GitHub will automatically create a CNAME file in the root directory of your repository. This file tells GitHub that your website is linked to this custom domain.
-&lt;img src=&#34;images/01-docs-folder.avif&#34; alt=&#34;generated CNAME file in root&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Head to Settings &amp;gt; Pages.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-github-pages.avif&#34; alt=&#34;github-pages&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Scroll down to the Custom Domain section.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-github-pages-settings.avif&#34; alt=&#34;github-pages settings&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
+GitHub will automatically create a CNAME file in the root directory of your repository. This file tells GitHub that your website is linked to this custom domain.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-docs-folder.avif&#34; alt=&#34;generated CNAME file in root&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After adding the domain, GitHub Pages will take a few minutes to process the changes.&lt;/p&gt;
 &lt;h1 id=&#34;step-4-check-ssltls-and-https&#34;&gt;Step 4: Check SSL/TLS and HTTPS&lt;/h1&gt;
 &lt;p&gt;After configuring your custom domain, it&amp;rsquo;s crucial to ensure that your website is served securely over HTTPS. GitHub Pages offers built-in support for HTTPS through Let&amp;rsquo;s Encrypt, which is a major advantage over traditional domain providers like GoDaddy.&lt;/p&gt;
