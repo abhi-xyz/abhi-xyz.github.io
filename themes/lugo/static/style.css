@@ -84,12 +84,12 @@ a {
 
 /* unvisited link */
 a:link {
-	color: var(--teal);
+	color: var(--lavender);
 }
 
 /* visited link */
 a:visited {
-	color: var(--red);
+	color: var(--lavender);
 }
 
 /* mouse over link */
