@@ -1,14 +1,23 @@
 <footer>
     <div>
-        {{- if .Param "showrss" }}<br><br><a href="/index.xml"><img src="/rss.svg" style="max-height:1.5em"
+        <br><br>
+        {{- if .Param "showgithub" }}<a id="footer_svg" href="https://github.com/abhi-xyz/"><img src="/github.svg"
+                style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>{{
+        end }}
+        {{- if .Param "showemail" }}<a id="footer_svg" href="mailto:abhinandhsuby@proton.me"><img src="/mail.svg"
+                target="_blank" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>{{
+        end }}
+        {{- if .Param "showrss" }}<a id="footer_svg" href="/index.xml"><img src="/rss.svg" style="max-height:1.5em"
                 alt="RSS Feed" title="Subscribe via RSS for updates."></a>{{ end }}
-
+        {{- if .Param "showx" }}<a id="footer_svg" href="https://x.com/Ungraduate_Abhi"><img src="/twitter.svg"
+                style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a>{{ end }}
         <p>
-            {{ .Site.Copyright }}
-            <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution">Some rights
-                reserved</a>;
-            please attribute properly and link back.
+            The website’s source code is licensed under the <a href="https://opensource.org/license/mit">MIT License</a>
+            and is available <a href="https://github.com/abhi-xyz/abhi-xyz.github.io">here</a>.
+            Articles are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative
+                Commons with the Share-alike Clause (CC-BY-SA 4.0)</a>.
         </p>
+        <br>
         <br>
     </div>
 </footer>

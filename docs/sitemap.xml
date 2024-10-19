@@ -2,27 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:39781/</loc>
+    <loc>http://localhost:33425/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/articles/</loc>
+    <loc>http://localhost:33425/tags/all/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/tags/blog/</loc>
+    <loc>http://localhost:33425/articles/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/tags/github-pages/</loc>
+    <loc>http://localhost:33425/tags/github-pages/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/articles/how-to-set-up-godaddy-domain-with-github-pages/</loc>
+    <loc>http://localhost:33425/articles/how-to-set-up-godaddy-domain-with-github-pages/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/tags/</loc>
+    <loc>http://localhost:33425/tags/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/articles/sops-nix/</loc>
+    <loc>http://localhost:33425/tags/linux/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:39781/categories/</loc>
+    <loc>http://localhost:33425/tags/nix/</loc>
+    <lastmod>2024-10-17T18:12:59+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:33425/tags/nixos/</loc>
+    <lastmod>2024-10-17T18:12:59+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:33425/articles/sops-nix/</loc>
+    <lastmod>2024-10-17T18:12:59+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:33425/categories/</loc>
   </url>
 </urlset>

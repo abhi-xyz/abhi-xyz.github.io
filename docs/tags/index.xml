@@ -1,97 +1,97 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>http://localhost:39781/tags/</link>
+	<link>http://localhost:33425/tags/</link>
 	<description>Recent content in Tags on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<copyright>© 2024-25 Abhinandh S.</copyright>
 	<lastBuildDate>Sat, 19 Oct 2024 09:10:47 +0530</lastBuildDate>
     
-        <atom:link href="http://localhost:39781/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:33425/tags/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
 		<title>How to Set Up GoDaddy Domain With GitHub Pages</title>
-		<link>http://localhost:39781/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
+		<link>http://localhost:33425/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
 		<pubDate>Sat, 19 Oct 2024 09:10:47 +0530</pubDate>
 		
-		<guid>http://localhost:39781/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
-		<description>&lt;p&gt;This is a&lt;/p&gt;
-&lt;p&gt;[block]&lt;/p&gt;
-&lt;p&gt;passthrough element with opening and closing block delimiters.&lt;/p&gt;
-&lt;p&gt;This is an (inline) passthrough element with opening and closing inline delimiters.&lt;/p&gt;
-&lt;p&gt;Congrats! You’ve finally bought yourself a domain, and now you&amp;rsquo;re ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.&lt;/p&gt;
+		<guid>http://localhost:33425/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
+		<description>&lt;p&gt;Congrats! You’ve finally bought yourself a domain, and now you&amp;rsquo;re ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.&lt;/p&gt;
 &lt;h1 id=&#34;step-1-configuring-github-pages&#34;&gt;Step 1: Configuring GitHub Pages&lt;/h1&gt;
 &lt;p&gt;First, ensure that your repository name follows the required naming convention for GitHub Pages
 ie, your repository name must be your-username.github.io.&lt;/p&gt;
 &lt;p&gt;mine is: &lt;a href=&#34;https://github.com/abhi-xyz/abhi-xyz.github.io&#34;&gt;https://github.com/abhi-xyz/abhi-xyz.github.io&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once your repository is ready, navigate to the repository’s Settings.&lt;/p&gt;
-&lt;h2 id=&#34;enable-github-pages&#34;&gt;Enable GitHub Pages&lt;/h2&gt;
+&lt;h3 id=&#34;enable-github-pages&#34;&gt;Enable GitHub Pages&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;Go to the Settings of your repository.&lt;/li&gt;
 &lt;li&gt;Scroll down to the Code and Automation section and select Pages.&lt;/li&gt;
 &lt;li&gt;Under Source, choose the branch that contains your static site. For most cases, this will be the main or master branch.&lt;/li&gt;
-&lt;li&gt;For the directory, choose root, especially if your static files are in the root of your repository.&lt;/li&gt;
+&lt;li&gt;For the directory, choose root (ie, the directory which the index.html is situated).&lt;/li&gt;
 &lt;li&gt;Save the changes, and GitHub will start serving your site from your-username.github.io.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;step-2-setting-up-dns-records-in-godaddy&#34;&gt;Step 2: Setting Up DNS Records in GoDaddy&lt;/h1&gt;
 &lt;p&gt;Now that your GitHub Pages site is live, the next step is to point your custom GoDaddy domain to GitHub Pages.&lt;/p&gt;
 &lt;h3 id=&#34;add-dns-records-in-godaddy&#34;&gt;Add DNS Records in GoDaddy&lt;/h3&gt;
-&lt;p&gt;Log in to your GoDaddy account.&lt;/p&gt;
-&lt;p&gt;Under My Products, find your domain and click DNS to manage its DNS settings.&lt;/p&gt;
-&lt;p&gt;Add the following entries in the DNS management settings:&lt;/p&gt;
-&lt;p&gt;Type: A&lt;/p&gt;
-&lt;p&gt;Name: @&lt;/p&gt;
-&lt;p&gt;Value: 185.199.108.153&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[!NOTE]
-Useful information that users should know, even when skimming content.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote cite=&#34;https://gohugo.io&#34;&gt;&lt;p&gt;Some&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to your &lt;a href=&#34;https://www.godaddy.com/&#34;&gt;GoDaddy account&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Under &lt;strong&gt;My Products&lt;/strong&gt;, find your domain and click DNS to manage its DNS settings.&lt;/li&gt;
+&lt;li&gt;Add the following entries in the DNS management settings:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-godaddy-dns-management.avif&#34; alt=&#34;add these entries in GoDaddy&amp;rsquo;s DNS management settings&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Type: A&lt;/li&gt;
+&lt;li&gt;Name: @&lt;/li&gt;
+&lt;li&gt;Value: 185.199.108.153 (Values might change so refer this &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&#34;&gt;instructions&lt;/a&gt; and put aprropriate values.)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;(Repeat this for all four IPs: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153)&lt;/p&gt;
-&lt;p&gt;TTL: 600 seconds&lt;/p&gt;
-&lt;p&gt;Add DNS Entries in GoDaddy&lt;/p&gt;
-&lt;p&gt;Add a CNAME record as well:&lt;/p&gt;
-&lt;p&gt;Type: CNAME
-Name: www
-Value: your-username.github.io
-TTL: 600 seconds&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TTL: 600 seconds (default is fine)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Add a CNAME record as well: (optional if you want to set www with yourdomain.com. ie, &lt;a href=&#34;https://www.yourdomain.com&#34;&gt;www.yourdomain.com&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Type: CNAME&lt;/li&gt;
+&lt;li&gt;Name: www&lt;/li&gt;
+&lt;li&gt;Value: your-username.github.io&lt;/li&gt;
+&lt;li&gt;TTL: 600 seconds&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Save the changes.&lt;/p&gt;
 &lt;h1 id=&#34;step-3-configuring-a-custom-domain-in-github-pages&#34;&gt;Step 3: Configuring a Custom Domain in GitHub Pages&lt;/h1&gt;
 &lt;p&gt;Once you’ve set up the DNS records in GoDaddy, go back to your GitHub repository.&lt;/p&gt;
-&lt;p&gt;Head to Settings &amp;gt; Pages.
-Scroll down to the Custom Domain section.
-Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
+&lt;p&gt;Head to Settings &amp;gt; Pages.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-github-pages.avif&#34; alt=&#34;github-pages&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Scroll down to the Custom Domain section.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-github-pages-settings.avif&#34; alt=&#34;github-pages settings&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Enter your GoDaddy domain (e.g., yourdomain.com) in the field.
 GitHub will automatically create a CNAME file in the root directory of your repository. This file tells GitHub that your website is linked to this custom domain.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/01-docs-folder.avif&#34; alt=&#34;generated CNAME file in root&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After adding the domain, GitHub Pages will take a few minutes to process the changes.&lt;/p&gt;
-&lt;p&gt;Step 4: Check SSL/TLS and HTTPS&lt;/p&gt;
-&lt;p&gt;After configuring the domain, ensure that Enforce HTTPS is enabled in the GitHub Pages settings. This will automatically redirect your users to a secure version of your site using HTTPS.&lt;/p&gt;
-&lt;p&gt;GitHub Pages HTTPS&lt;/p&gt;
-&lt;p&gt;Once all the DNS changes propagate (which can take up to 24-48 hours), your GitHub Pages site will be accessible through your custom GoDaddy domain!&lt;/p&gt;
-&lt;p&gt;That&amp;rsquo;s it! You’ve successfully connected your GoDaddy domain to GitHub Pages. 🎉&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain&#34;&gt;instructions&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/01-godaddy-dns-management.avif&#34; alt=&#34;add these entries in GoDaddy&amp;rsquo;s DNS management settings&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;images/01-github-pages.avif&#34; alt=&#34;github-pages&#34;&gt;
-&lt;img src=&#34;images/01-github-pages-settings.avif&#34; alt=&#34;github-pages settings&#34;&gt;
-&lt;img src=&#34;images/01-docs-folder.avif&#34; alt=&#34;generated CNAME file in root&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Then go to settings &lt;a href=&#34;https://github.com/abhi-xyz/abhi-xyz.github.io/settings&#34;&gt;https://github.com/abhi-xyz/abhi-xyz.github.io/settings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Under Code and automation section select Pages&lt;/li&gt;
-&lt;li&gt;Select Branch and root&lt;/li&gt;
-&lt;li&gt;Scroll down and put you custom domain name in the field.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;&#34; alt=&#34;github-pages settings&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;step-4-check-ssltls-and-https&#34;&gt;Step 4: Check SSL/TLS and HTTPS&lt;/h1&gt;
+&lt;p&gt;After configuring your custom domain, it&amp;rsquo;s crucial to ensure that your website is served securely over HTTPS. GitHub Pages offers built-in support for HTTPS through Let&amp;rsquo;s Encrypt, which is a major advantage over traditional domain providers like GoDaddy.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to your repository&amp;rsquo;s Settings.&lt;/li&gt;
+&lt;li&gt;In the GitHub Pages section, look for the option to Enforce HTTPS.&lt;/li&gt;
+&lt;li&gt;Enable the Enforce HTTPS checkbox. This will ensure that visitors are automatically redirected to the secure version (HTTPS) of your site.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;However, after adding your domain, you may encounter a message saying, &amp;ldquo;TLS certificate is being provisioned&amp;rdquo;. This is completely normal and indicates that GitHub is working with Let&amp;rsquo;s Encrypt to issue your SSL certificate. You may need to refresh the page after some time if the Enforce HTTPS option is disabled at first.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;images/tls_provisioned.avif&#34; alt=&#34;TLS certificate provisioned&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;why-https-matters&#34;&gt;Why HTTPS Matters&lt;/h1&gt;
+&lt;p&gt;Normally, domains purchased from GoDaddy or other providers are routed through HTTP by default, which means your site won&amp;rsquo;t be secure. When someone visits your site, their browser will display a warning indicating that the site is not secure, which can drive away visitors.&lt;/p&gt;
+&lt;p&gt;If you were to purchase a SSL certificate from GoDaddy, it could cost you approximately ₹4999 annually. However, by using GitHub Pages, you get a free TLS certificate through Let&amp;rsquo;s Encrypt, giving you secure, encrypted access to your website without additional costs. This is one of the key benefits of using GitHub Pages for hosting!&lt;/p&gt;
+&lt;p&gt;Once the DNS settings propagate (which may take between 24-48 hours), your GitHub Pages site will be securely accessible through your custom GoDaddy domain over HTTPS.&lt;/p&gt;
+&lt;p&gt;That’s it! You&amp;rsquo;ve successfully set up your GoDaddy domain with GitHub Pages. 🎉 Enjoy your new, secure website!&lt;/p&gt;
 </description>
 	</item>
 	
 	<item>
 		<title>Sops Nix: A Step-by-Step Guide</title>
-		<link>http://localhost:39781/articles/sops-nix/</link>
+		<link>http://localhost:33425/articles/sops-nix/</link>
 		<pubDate>Thu, 17 Oct 2024 18:12:59 +0530</pubDate>
 		
-		<guid>http://localhost:39781/articles/sops-nix/</guid>
+		<guid>http://localhost:33425/articles/sops-nix/</guid>
 		<description>&lt;p&gt;In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.&lt;/p&gt;
 &lt;h2 id=&#34;step-1---installing-sops-via-flakes&#34;&gt;Step 1 - Installing Sops via Flakes&lt;/h2&gt;
 &lt;p&gt;To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:&lt;/p&gt;

@@ -15,3 +15,6 @@ languageCode = 'en-us'
   nextprev = true
   taglist = true
   showrss = true
+  showemail = true
+  showgithub = true
+  showx = true
