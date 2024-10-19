@@ -36,7 +36,7 @@ Replace yourhostname with the actual hostname of your machine.
 
 Next, you need to generate an age key for encryption, you can use gpg keys but age is considered more safe and secure:
 
-```fish { .my_codeblock }
+```fish { .my_codeblock hl_Lines="0"}
 mkdir -p ~/.config/sops/age
 
 age-keygen -o ~/.config/sops/age/keys.txt
@@ -49,7 +49,7 @@ age-keygen -o ~/.config/sops/age/keys.txt
 * Then the relative path to secrets files
 * and key groups
 
-```yaml { .my_codeblock }
+```yaml { .my_codeblock hl_Lines="0"}
 keys:
   - &user age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
 creation_rules:
@@ -62,12 +62,12 @@ creation_rules:
 
 ## Step 4 - Create a sops file
 
-```fish { .my_codeblock }
+```fish { .my_codeblock hl_Lines="0"}
  sops secrets/secrets.yaml
 
 ```
 
-```yaml { .my_codeblock }
+```yaml { .my_codeblock hl_Lines="0"}
 
 # Files must always have a string value
 example-key: example-value
@@ -81,7 +81,7 @@ myservice:
 
 * Check the secrets.yaml file
 
-```fish { .my_codeblock }
+```fish { .my_codeblock hl_Lines="1"}
 cat secrets/secrets.yaml
 
 example-key: ENC[AES256_GCM,data:AB8XMyid4P7mXdjj+A==,iv:RRsZC+V+3w22pOi/2TCjBYn/0OYsNGCu5CT1ZBSKGi0=,tag:zT5mlujrSuA6KKxLKL8CMQ==,type:str]
@@ -122,7 +122,7 @@ sops:
 
 ```
 ## Step -5
-```nix { .my_codeblock }
+```nix { .my_codeblock hl_Lines="0"}
 {
   imports = [ <sops-nix/modules/sops> ];
   # This will add secrets.yml to the nix store

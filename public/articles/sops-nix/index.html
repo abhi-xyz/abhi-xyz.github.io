@@ -95,14 +95,14 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </div><p>Replace yourhostname with the actual hostname of your machine.</p>
 <h2 id="step-2---generate-an-age-key">Step 2 - Generate an Age Key</h2>
 <p>Next, you need to generate an age key for encryption, you can use gpg keys but age is considered more safe and secure:</p>
-<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#89b4fa">mkdir</span> <span style="color:#89b4fa">-p</span> ~/.config/sops/age
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#89b4fa">mkdir</span> <span style="color:#89b4fa">-p</span> ~/.config/sops/age
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#89b4fa">age-keygen</span> <span style="color:#89b4fa">-o</span> ~/.config/sops/age/keys.txt
 </span></span></code></pre></td></tr></table>
@@ -113,9 +113,9 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 <li>Then the relative path to secrets files</li>
 <li>and key groups</li>
 </ul>
-<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
@@ -124,7 +124,7 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#cba6f7">keys</span>:
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#cba6f7">keys</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#6c7086;font-style:italic">&amp;user</span> age12zlz6lvcdk6eqaewfylg35w0syh58sm7gh53q5vvn7hd7c6nngyseftjxl
 </span></span><span style="display:flex;"><span><span style="color:#cba6f7">creation_rules</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#cba6f7">path_regex</span>: secrets/secrets.yaml$
@@ -134,17 +134,17 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="step-4---create-a-sops-file">Step 4 - Create a sops file</h2>
-<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span> <span style="color:#89b4fa">sops</span> secrets/secrets.yaml
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span> <span style="color:#89b4fa">sops</span> secrets/secrets.yaml
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</div><div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
@@ -154,7 +154,7 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># Files must always have a string value</span>
 </span></span><span style="display:flex;"><span><span style="color:#cba6f7">example-key</span>: example-value
 </span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># Nesting the key results in the creation of directories.</span>
@@ -167,10 +167,10 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </div><ul>
 <li>Check the secrets.yaml file</li>
 </ul>
-<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="background-color:#45475a"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5
@@ -208,7 +208,7 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">37
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#89b4fa">cat</span> secrets/secrets.yaml
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-fish" data-lang="fish"><span style="display:flex; background-color:#45475a"><span><span style="color:#89b4fa">cat</span> secrets/secrets.yaml
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#89b4fa">example-key</span>: ENC<span style="color:#89dceb;font-weight:bold">[</span>AES256_GCM,data:AB8XMyid4P7mXdjj+<span style="color:#f5e0dc">A</span><span style="color:#89dceb;font-weight:bold">==</span>,iv:RRsZC+V+3w22pOi/2TCjBYn/<span style="color:#f5e0dc">0OYsNGCu5CT1ZBSKGi0</span><span style="color:#89dceb;font-weight:bold">=</span>,tag:<span style="color:#f5e0dc">zT5mlujrSuA6KKxLKL8CMQ</span><span style="color:#89dceb;font-weight:bold">==</span>,<span style="color:#89dceb">type</span>:str<span style="color:#89dceb;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic">#ENC[AES256_GCM,data:59QWbzCQCP7kLdhyjFOZe503MgegN0kv505PBNHwjp6aYztDHwx2N9+A1Bz6G/vWYo+4LpBo8/s=,iv:89q3ZXgM1wBUg5G29ROor3VXrO3QFGCvfwDoA3+G14M=,tag:hOSnEZ6DKycnF37LCXOjzg==,type:comment]
@@ -248,9 +248,9 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="step--5">Step -5</h2>
-<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
@@ -268,7 +268,7 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  imports <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#94e2d5">&lt;sops-nix/modules/sops&gt;</span> ];
 </span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># This will add secrets.yml to the nix store</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#6c7086;font-style:italic"># You can avoid this by adding a string to the full path instead, i.e.</span>
