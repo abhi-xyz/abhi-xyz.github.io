@@ -5,11 +5,12 @@
 	<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
 	<link rel="canonical" href="{{ .Site.BaseURL }}">
 	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
+	<link rel="icon" type="image/x-icon" href="/images/favicon/circle.svg">
 	<link rel='stylesheet' type='text/css' href='/style.css'>
 	<script src="/script.js" defer></script>
-	{{ with .Site.Params.favicon }}
+	<!-- {{ with .Site.Params.favicon }}
 	<link rel="icon" href="{{ . }}">
-	{{ end -}}
+	{{ end -}} -->
 	<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
 	{{ if isset .Params "tags" }}
 	<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . " , " }}{{ end }}">

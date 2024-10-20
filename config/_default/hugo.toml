@@ -1,12 +1,25 @@
+title = 'Abhinandh S'
 baseURL = 'https://abhinandhs.in/'
 languageCode = 'en-us'
-title = 'Abhinandh S'
 copyright = '© 2024-25 Abhinandh S.'
-theme = 'lugo'
-favicon = '/images/favicon.png'
+# theme = 'iris'
+favicon = "/favicon.ico"
 cleanDestinationDir = true
 
-
+[params]
+  relatedtext = "Related tags"
+  favicon = "/favicon.ico"
+  #list items
+  datesinlist = true
+  authorsinlist = true
+  #footer items
+  nextprev = true
+  taglist = true
+  showrss = true
+  showemail = true
+  showgithub = true
+  showx = true
+  
 [markup]
   [markup.highlight]
     anchorLineNos = false
