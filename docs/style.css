@@ -52,7 +52,6 @@
 	src: url(/fonts/MapleMono-woff2/MapleMono-BoldItalic.woff2);
 }
 
-
 .maple_mono_italic {
 	font-family: maple_mono_italic;
 	color: var(--text);
@@ -62,25 +61,6 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-}
-
-
-pre {
-	border: 1px solid var(--base2);
-	border-radius: 8px;
-	background-color: var(--base2);
-	font-family: monospace;
-	overflow-x: scroll;
-	max-width: 100%;
-}
-
-pre code {
-	min-width: 35px;
-	display: block;
-	-webkit-overflow-scrolling: touch;
-	overflow-x: scroll;
-	font-family: monospace;
-	font-size: 0.9rem;
 }
 
 
@@ -102,6 +82,18 @@ h2,
 h3,
 h4,
 h5 {
+	padding: 15px;
+}
+
+ul li {
+	margin-left: 40px;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+ol li {
+	margin-left: 40px;
+	margin-right: 10px;
 	padding: 5px;
 }
 
@@ -198,6 +190,8 @@ footer {
 #nextart,
 #prevart {
 	max-width: 33%;
+	padding: 20px;
+	font-weight: bold;
 }
 
 p {
@@ -261,7 +255,7 @@ h1 {
 
 .navbar-link:is(:focus, :hover) {
 	color: var(--cherryRed);
-	background-color: var(--base2);
+	background-color: var(--base);
 }
 
 .navbar-logo {
@@ -374,4 +368,24 @@ h1 {
 		width: 100%;
 		height: 100%;
 	}
+}
+
+/* NOTE: code block */
+
+pre {
+	border: 1px solid var(--base2);
+	border-radius: 8px;
+	background-color: var(--base2);
+	font-family: monospace;
+	overflow-x: scroll;
+	max-width: 100%;
+}
+
+pre code {
+	min-width: 35px;
+	display: block;
+	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+	font-family: monospace;
+	font-size: 0.9rem;
 }

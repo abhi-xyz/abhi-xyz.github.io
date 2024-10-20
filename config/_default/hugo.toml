@@ -5,6 +5,7 @@ copyright = '© 2024-25 Abhinandh S.'
 # theme = 'iris'
 favicon = "/favicon.ico"
 cleanDestinationDir = true
+enableRobotsTXT = true
 
 [params]
   relatedtext = "Related tags"
