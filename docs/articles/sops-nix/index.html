@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=41579&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
 	<title>Sops Nix: A Step-by-Step Guide | Abhinandh S</title>
-	<link rel="canonical" href="http://localhost:41579/">
+	<link rel="canonical" href="http://localhost:1313/">
 	<link rel='alternate' type='application/rss+xml' title="Abhinandh S RSS" href='/index.xml'>
 	<link rel="icon" type="image/x-icon" href="/images/favicon/circle.svg">
 	<link rel='stylesheet' type='text/css' href='/style.css'>
 	<script src="/script.js" defer></script>
 	
 	<meta name="description" content="In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.
-Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 { inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;; # optional, not necessary for the module #inputs.">
+Step 1 - Installing Sops via Flakes
+To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+
+
+{
+  inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;;
+  # optional, not necessary for the module
+  #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;;
+
+  outputs = { self, nixpkgs, sops-nix }: {
+    # change `yourhostname` to your actual hostname
+    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
+      # customize to your system
+      system = &#34;x86_64-linux&#34;;
+      modules = [
+        ./configuration.nix
+        sops-nix.nixosModules.sops
+      ];
+    };
+  };
+}
+
+
+Replace yourhostname with the actual hostname of your machine.">
 	
 	<meta name="keywords" content="all , nix , nixos , linux">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -291,7 +332,7 @@ Step 1 - Installing Sops via Flakes To begin, we need to add sops-nix as a Flake
 			
 			<div id="nextprev"><a href="/articles/how-to-set-up-godaddy-domain-with-github-pages/"><div id="nextart">Next:<br>How to Set Up GoDaddy Domain With GitHub Pages</div></a>
 </div>
-<div style="clear:both" class=taglist>Related tags<br><a id="tag_all" href="http://localhost:41579/tags/all">All</a> &middot; <a id="tag_nix" href="http://localhost:41579/tags/nix">Nix</a> &middot; <a id="tag_nixos" href="http://localhost:41579/tags/nixos">Nixos</a> &middot; <a id="tag_linux" href="http://localhost:41579/tags/linux">Linux</a></div>
+<div style="clear:both" class=taglist>Related tags<br><a id="tag_all" href="http://localhost:1313/tags/all">All</a> &middot; <a id="tag_nix" href="http://localhost:1313/tags/nix">Nix</a> &middot; <a id="tag_nixos" href="http://localhost:1313/tags/nixos">Nixos</a> &middot; <a id="tag_linux" href="http://localhost:1313/tags/linux">Linux</a></div>
 </article>
 	</main>
 	<footer>

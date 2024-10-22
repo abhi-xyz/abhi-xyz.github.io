@@ -1,22 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>http://localhost:41579/articles/</link>
+	<link>http://localhost:1313/articles/</link>
 	<description>Recent content in Articles on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<copyright>© 2024-25 Abhinandh S.</copyright>
-	<lastBuildDate>Sat, 19 Oct 2024 21:55:08 +0530</lastBuildDate>
+	<lastBuildDate>Tue, 22 Oct 2024 13:18:36 +0530</lastBuildDate>
     
-        <atom:link href="http://localhost:41579/articles/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:1313/articles/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
 		<title>How to Set Up GoDaddy Domain With GitHub Pages</title>
-		<link>http://localhost:41579/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
+		<link>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
 		<pubDate>Sat, 19 Oct 2024 09:10:47 +0530</pubDate>
 		
-		<guid>http://localhost:41579/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
+		<guid>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
 		<description>&lt;p&gt;Congrats! You’ve finally bought yourself a domain, and now you&amp;rsquo;re ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.&lt;/p&gt;
 &lt;h1 id=&#34;step-1-configuring-github-pages&#34;&gt;Step 1: Configuring GitHub Pages&lt;/h1&gt;
 &lt;p&gt;First, ensure that your repository name follows the required naming convention for GitHub Pages
@@ -88,10 +88,10 @@ GitHub will automatically create a CNAME file in the root directory of your repo
 	
 	<item>
 		<title>Sops Nix: A Step-by-Step Guide</title>
-		<link>http://localhost:41579/articles/sops-nix/</link>
+		<link>http://localhost:1313/articles/sops-nix/</link>
 		<pubDate>Thu, 17 Oct 2024 18:12:59 +0530</pubDate>
 		
-		<guid>http://localhost:41579/articles/sops-nix/</guid>
+		<guid>http://localhost:1313/articles/sops-nix/</guid>
 		<description>&lt;p&gt;In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.&lt;/p&gt;
 &lt;h2 id=&#34;step-1---installing-sops-via-flakes&#34;&gt;Step 1 - Installing Sops via Flakes&lt;/h2&gt;
 &lt;p&gt;To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:&lt;/p&gt;

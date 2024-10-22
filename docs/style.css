@@ -373,8 +373,9 @@ h1 {
 /* NOTE: code block */
 
 pre {
-	border: 1px solid var(--base2);
-	border-radius: 8px;
+	border: 0px solid var(--text);
+	border-radius: 3px;
+	padding: 10px;
 	background-color: var(--base2);
 	font-family: monospace;
 	overflow-x: scroll;

@@ -2,36 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:41579/</loc>
-    <lastmod>2024-10-19T21:58:40+05:30</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-10-20T20:54:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/articles/</loc>
-    <lastmod>2024-10-19T21:55:08+05:30</lastmod>
+    <loc>http://localhost:1313/articles/</loc>
+    <lastmod>2024-10-20T20:54:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/all/</loc>
+    <loc>http://localhost:1313/tags/all/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/github-pages/</loc>
+    <loc>http://localhost:1313/tags/github-pages/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/articles/how-to-set-up-godaddy-domain-with-github-pages/</loc>
+    <loc>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-10-19T09:10:47+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/linux/</loc>
+    <loc>http://localhost:1313/tags/linux/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/nix/</loc>
+    <loc>http://localhost:1313/tags/nix/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/tags/nixos/</loc>
+    <loc>http://localhost:1313/tags/nixos/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/articles/sops-nix/</loc>
+    <loc>http://localhost:1313/articles/sops-nix/</loc>
     <lastmod>2024-10-17T18:12:59+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:41579/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>
