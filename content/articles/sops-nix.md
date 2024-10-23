@@ -6,7 +6,7 @@ date = 2024-10-17T18:12:59+05:30
 
 In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.
 
-## Step 1 - Installing Sops via Flakes
+## Step-1 Installing Sops via Flakes
 
 To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
 

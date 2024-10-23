@@ -22,7 +22,7 @@ In this post, I'll guide you through how to set up your newsboat configuration u
 
 In Nix, you can use functions to generate your RSS feed URLs dynamically. Here's an example block of Nix functions for various platforms:
 
-```nix
+```nix { hl_Lines="0"}
 { ... }:
 let
   # Function to generate Instagram RSS feed URLs

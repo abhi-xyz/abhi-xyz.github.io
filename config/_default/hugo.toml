@@ -23,6 +23,7 @@ enableRobotsTXT = true
   
 [markup]
   [markup.highlight]
+    hl_Lines = '0'
     anchorLineNos = false
     codeFences = true
     guessSyntax = false
