@@ -1,7 +1,7 @@
 +++
 title = 'Nix Functions To Setup Newsboat Urls'
 date = 2024-10-22T13:18:36+05:30
-draft = false
+draft = true
 description = ""
 tags = ['all']
 +++
