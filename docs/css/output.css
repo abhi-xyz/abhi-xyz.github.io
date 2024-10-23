@@ -561,7 +561,7 @@ video {
 }
 
 p {
-  padding: 0.5rem;
+  padding: 0.75rem;
 }
 
 h1,
@@ -665,6 +665,18 @@ a:active {
   z-index: 10;
 }
 
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.clear-both {
+  clear: both;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -706,20 +718,8 @@ a:active {
   width: 100%;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
-.w-52 {
-  width: 13rem;
-}
-
-.max-w-80 {
-  max-width: 20rem;
-}
-
-.max-w-5xl {
-  max-width: 64rem;
+.max-w-44 {
+  max-width: 11rem;
 }
 
 .flex-col {
@@ -749,16 +749,16 @@ a:active {
   background-color: rgb(30 30 46 / var(--tw-bg-opacity));
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-2 {
   padding: 0.5rem;
 }
 
-.p-52 {
-  padding: 13rem;
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-4 {
@@ -771,11 +771,6 @@ a:active {
   padding-bottom: 0.5rem;
 }
 
-.px-52 {
-  padding-left: 13rem;
-  padding-right: 13rem;
-}
-
 .pb-7 {
   padding-bottom: 1.75rem;
 }
@@ -784,8 +779,16 @@ a:active {
   padding-top: 2rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-5xl {
@@ -795,6 +798,10 @@ a:active {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .text-mocha-text {
@@ -840,18 +847,9 @@ a:active {
     min-height: 4rem;
   }
 
-  .max-tablet\:w-auto {
-    width: auto;
-  }
-
   .max-tablet\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .max-tablet\:px-52 {
-    padding-left: 13rem;
-    padding-right: 13rem;
   }
 
   .max-tablet\:text-2xl {
