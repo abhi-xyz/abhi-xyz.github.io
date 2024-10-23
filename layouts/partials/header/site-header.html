@@ -1,22 +1,63 @@
-<header id="navbar">
-    <nav class="navbar-container container">
-        <a href="/" class="home-link">
-            <div class="navbar-logo"></div>
-            Abhinandh S
-        </a>
-        <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu"
-            aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <div id="navbar-menu" aria-labelledby="navbar-toggle">
-            <ul class="navbar-links">
-                <li class="navbar-item"><a class="navbar-link" href="/">Home</a></li>
-                <li class="navbar-item"><a class="navbar-link" href="/portfolio">Portfolio</a></li>
-                <li class="navbar-item"><a class="navbar-link" href="/articles">Articles</a></li>
-                <li class="navbar-item"><a class="navbar-link" href="/contact">Contact</a></li>
-            </ul>
+<!-- Wrapper -->
+<div class="mb-3">
+    <!-- Navbar -->
+    <nav class="bg-mocha-base shadow-md w-full min-h-32 max-tablet:min-h-16 top-0 left-0 z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center pt-8 max-tablet:py-4">
+                <!-- Logo -->
+                <div class="text-5xl max-tablet:text-2xl font-bold text-mocha-text"
+                    style="font-family: 'Helvetica Neue', san-serif">ABHINANDH S<span class="text-vibez-red">.</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="flex max-tablet:hidden space-x-6 mt-12 pb-7">
+                    <a href="/home" class="text-mocha-text visited:text-mocha-text hover:text-vibez-red">Home</a>
+                    <a href="/portfolio"
+                        class="text-mocha-text visited:text-mocha-text hover:text-vibez-red">Portfolio</a>
+                    <a href="/articles"
+                        class="text-mocha-text visited:text-mocha-text hover:text-vibez-red">Articles</a>
+                    <a href="/about" class="text-mocha-text visited:text-mocha-text hover:text-vibez-red">About</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu -->
+                <div class="hidden max-tablet:flex">
+                    <!-- Hamburger button -->
+                    <button id="hamburger-btn" class="text-mocha-text focus:outline-none">
+                        <!-- Icon (hamburger) -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Items -->
+            <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center">
+                <a href="/home" class="block py-2 px-4 text-mocha-text hover:text-vibez-red">Home</a>
+                <a href="/portfolio" class="block py-2 px-4 text-mocha-text hover:text-vibez-red">Portfolio</a>
+                <a href="/articles" class="block py-2 px-4 text-mocha-text hover:text-vibez-red">Articles</a>
+                <a href="/about" class="block py-2 px-4 text-mocha-text hover:text-vibez-red">About</a>
+            </div>
         </div>
     </nav>
-</header>
+
+    <!-- JavaScript for toggling the mobile menu -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle the visibility of the mobile menu when the hamburger button is clicked
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</div>
+
+
+<!--
+<h1 class="">{{ site.Title }}</h1>
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+-->

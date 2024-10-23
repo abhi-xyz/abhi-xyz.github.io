@@ -1,21 +1,18 @@
 +++
-title = 'Setting Up Newsboat the Nix Way'
+title = 'Nix Functions To Setup Newsboat Urls'
 date = 2024-10-22T13:18:36+05:30
-draft = true
+draft = false
 description = ""
 tags = ['all']
 +++
 
 RSS is a powerful way to stay updated with your favorite blogs, social media channels, and other online content without being distracted by endless scrolling on the actual platforms. [Newsboat](https://newsboat.org/), a terminal-based RSS reader, is an excellent tool for this.
 
-In this post, I'll guide you through how to set up your newsboat configuration using Nix functions to generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify with less boilerplates.
+In this post, I'll guide you through how to set up your newsboat configuration using Nix functions to generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify with less boilerplates. For more informations on supported platforms visit [rsshub](https://rsshub.netlify.app/).
 
-For more informations on supported platforms visit [rsshub](https://rsshub.netlify.app/).
-
-### Table of Contents -
+### Table of Contents
 
 1. What is Newsboat
-2. Why Use Nix for Newsboat Configuration?
 3. Setting Up Nix Functions for RSS Feeds
 4. Breakdown of Nix Functions for RSS Feeds
 5. Configuring Newsboat with Nix
@@ -57,9 +54,85 @@ in
   }
 ```
 
-# Breakdown of Nix Functions for RSS Feeds
+# Breakdown of the Nix Functions
 
-Let’s break down how these functions work:
+In Nix, functions are written as:
+
+#### Single parameter
+
+```nix
+param1: {
+    # Function Body
+}
+```
+#### Two parameters
+
+```nix
+param1: param2: {
+    # Function Body
+}
+```
+
+param1, param2 are inputs (arguments) to the function. That means we can write a function and pass just the username or unique id then the function we take care of the boilerplates parts of the links.
+
+#### Example
+
+If the input list is 
+```nix
+instagramFeeds = [ "kartikaaryan" "shraddhakapoor" ]
+```
+
+the output will be:
+
+```nix
+[
+  { tags = [ "instagram" ]; url = "https://rsshub.app/picuki/profile/kartikaaryan"; }
+  { tags = [ "instagram" ]; url = "https://rsshub.app/picuki/profile/shraddhakapoor"; }
+]
+```
+
+Let's create a funtions for YouTube feeds
+
+```nix
+{ ... }:
+let
+Youtube = userName: tags: {
+    tags = tags;
+    url = "https://rsshub.app/youtube/user/@${userName}";
+  };
+in
+{
+}
+```
+
+# Putting all togethere
+
+```nix
+{ ... }:
+let
+Youtube = userName: tags: {
+    tags = tags;
+    url = "https://rsshub.app/youtube/user/@${userName}";
+  };
+in
+{
+programs.newsboat = {
+    enable = true;
+    browser = "firefox";
+    autoReload = false;
+    urls = [
+      {tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
+
+      (Youtube "JFlaMusic" [ "youtube" "music" ])
+      (Youtube "cmanishanthreghunath" [ "academics" ])
+      (Youtube "AccountingStuff" [ "academics" ])
+      (Youtube "CinemaStellar" [ "youtube" "movies" ])
+      (Youtube "DanMurrellMovies" [ "youtube" "movies" ])
+      ];
+}
+```
+
+
 
 1. Instagram RSS Feeds
 
@@ -78,22 +151,6 @@ Example: For the username kartikaaryan, the URL generated would be:
     nix
 
     https://rsshub.app/picuki/profile/kartikaaryan
-
-2. Twitter RSS Feeds (via Nitter)
-
-nix
-
-twitterFeeds = users: map (userNames: {
-  tags = [ "twitter" ];
-  url = "https://nitter.privacydev.net/${userNames}/rss";
-}) users;
-
-    Purpose: Generates RSS feed URLs for Twitter profiles using Nitter, a privacy-friendly frontend for Twitter.
-    Example: For the username elonmusk, the URL generated is:
-
-    nix
-
-    https://nitter.privacydev.net/elonmusk/rss
 
 3. Reddit RSS Feeds
 
@@ -319,16 +376,6 @@ nix
 
 "https://rsshub.app/picuki/profile/${userNames}"
 
-Example: If the input list is ["kartikaaryan", "shraddhakapoor"], the output will be:
-
-nix
-
-[
-{ tags = [ "instagram" ]; url = "https://rsshub.app/picuki/profile/kartikaaryan"; }
-{ tags = [ "instagram" ]; url = "https://rsshub.app/picuki/profile/shraddhakapoor"; }
-]
-
-
 
 
 # Final code
@@ -359,9 +406,6 @@ YoutubeId = channel_id: tags: {
   tags = tags;
   url = "https://www.youtube.com/feeds/videos.xml?channel_id=${channel_id}";
 };
-# https://charts.youtube.com/charts/TopSongs/in/weekly
-# category = TopArtists	TopSongs	TopVideos	TrendingVideos
-# countryCode = 
 YtMusicChart = category: countryCode: tags: {
   tags = tags;
   url = "https://rsshub.app/youtube/charts/${category}/${countryCode}/RightNow";
@@ -376,147 +420,40 @@ in
     enable = true;
     browser = "linkhandler";
     autoReload = false;
-    reloadTime = 60;
-    reloadThreads = 10;
     urls = [
-    {tags = [ "articles" ]; url = "https://fortelabs.com/feed/";}
-    {tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
-    {tags = [ "articles" ]; url = "https://markmanson.net/feed";}
-    {tags = [ "articles" ]; url = "https://jamesclear.com/feed";}
-    {tags = [ "articles" ]; url = "http://calnewport.com/feed/";}
-    {tags = [ "articles" ]; url = "https://proton.me/blog/feed";}
-    {url = "---YOUTUBE-----------------------------------------------";}
-
-    (Youtube "JFlaMusic" [ "youtube" "music" ])
-      (Youtube "cmanishanthreghunath" [ "academics" ])
-      (Youtube "AccountingStuff" [ "academics" ])
+      {tags = [ "articles" ]; url = "https://feeds.feedburner.com/collabfund";}
       (Youtube "CinemaStellar" [ "youtube" "movies" ])
       (Youtube "DanMurrellMovies" [ "youtube" "movies" ])
-
       (YoutubeId "UC7YOGHUfC1Tb6E4pudI9STA" [])
       (YoutubeId "UCP7WmQ_U4GB3K51Od9QvM0w" [])
-
       (YtMusicChart "TopSongs" "in" [ "YtMusic" ])
-
       (Spotify "playlist" "Top Songs - Global" "37i9dQZEVXbNG2KDcFcKOF")
       (Spotify "playlist" "Top Songs - India" "37i9dQZEVXbMWDif5SCBJq")
-
       (Spotify "artist" "Halsey"            "26VFTg2z8YR0cCuwLzESi2")
-      (Spotify "artist" "Zayn"              "5ZsFI1h6hIdQRw2ti0hz81")
-      (Spotify "artist" "Harry Styles"      "6KImCVD70vtIoJWnq6nGn3")
-      (Spotify "artist" "Ed Sheeran"        "6eUKZXaKkcviH0Ku9w2n3V")
       (Spotify "artist" "The Chainsmokers"  "69GGBxA162lTqCwzJG5jLp")
       ]
       ++ youTubeFeeds [
-      "jonhoo"
-        "lundeveloper"
+        "jonhoo"
         "LukeSmithxyz"
         "NoBoilerplate"
-        "letsgetrusty"
-        "TechnoTim"
-        "programmersarealsohuman5909"
-        "ThePrimeagen"
-        "ThePrimeTimeagen"
-        "TheVimeagen"
-        "fknight"
-        "TsodingDaily"
-        "hubermanlab"
-        "MentalOutlaw"
-        "technicalsagarindia"
-        "NetworkChuck"
-        "mkbhd"
-        "bugswriter_"
-        "DistroTube"
-        "LoiLiangYang"
-        "JerryRigEverything"
-        "EricMurphyxyz"
-        "librephoenix"
-        "LowLevel-TV"
-        "shal.e8033"
-        "Emergent_Mind"
         ]
         ++ twitterFeeds [
-        "jonhoo"
+          "jonhoo"
           "MikaPikaZo"
-          "elonmusk"
-          "LiveOverflow"
-          "_JohnHammond"
-          "naval"
-          "networkchuck"
-          "grapheneos"
         ]
         ++ redditFeeds [
-        "rust"
+          "rust"
           "nixos"
-          "firefoxcss"
-          "latex"
           "unixporn"
         ]
         ++ instagramFeeds [
-        "kartikaaryan"
-          "__.yshnav._"
-          "jishnu_jishnu_"
-          "alisha_c_jojan"
-          "krithi.shetty_official"
+          "kartikaaryan"
           "shraddhakapoor"
-          "samyukthaviswanathan"
-          "_.suj1th._" # private :|
-          "_imanuraj"
-          "_aksh_ay_______"
         ];
 
-
-# macro v set browser "setsid -f mpv" ; open-in-browser ; set browser firefox
     extraConfig = ''
-# browser "wget %u -P /home/abhi/pics/pictures/newsboat"
-      external-url-viewer "urlscan -dc -r 'linkhandler {}'"
-      macro , open-in-browser
-      macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
-      macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser linkhandler
-      macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
-      macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
-      macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
-      macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
-      macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
-      macro p set browser "wget %u -P /home/abhi/pics/pictures/newsboat" ; open-in-browser ; set browser linkhandler
-      macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
-
       bind-key j down
       bind-key k up
-      bind-key j next articlelist
-      bind-key k prev articlelist
-      bind-key J next-feed articlelist
-      bind-key K prev-feed articlelist
-      bind-key G end
-      bind-key g home
-      bind-key d pagedown
-      bind-key u pageup
-      bind-key l open
-      bind-key h quit
-      bind-key a toggle-article-read
-      bind-key n next-unread
-      bind-key N prev-unread
-      bind-key D pb-download
-      bind-key U show-urls
-      bind-key x pb-delete
-      color listnormal color244 default
-      color listfocus black yellow standout bold
-      color listnormal_unread blue default
-      color listfocus_unread yellow default bold
-      color info red black bold
-      color article white default bold
-      highlight all "---.*---" color47 
-      highlight feedlist ".*(0/0))" black
-      highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
-      highlight article "(^Link:.*|^Date:.*)" default default
-      highlight article "https?://[^ ]+" green default
-      highlight article "^(Title):.*$" blue default
-      highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-      highlight article "\\[image\\ [0-9]+\\]" green default bold
-      highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-      highlight article ":.*\\(link\\)$" cyan default
-      highlight article ":.*\\(image\\)$" blue default
-      highlight article ":.*\\(embedded flash\\)$" magenta default
       '';
   };
 }

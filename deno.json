@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "hugo": "hugo server --noHTTPCache",
+    "tailwind": "tailwindcss -i assets/css/input.css -o static/css/output.css --watch",
+    "serve": "deno task tailwind & deno task hugo"
+  },
+  "permissions": {
+    "allow-run": [
+      "hugo",
+      "tailwindcss"
+    ]
+  }
+}
+

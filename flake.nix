@@ -21,6 +21,14 @@
             go
             nodejs
             neovim
+            brave
+            (writeShellScriptBin "ff" /*bash*/ ''
+      ${fzf}/bin/fzf -e --cycle --walker-skip=.git,.direnv,docs,public,images,assets,fonts,icons | xargs -r nvim 
+      '')
+  (writeShellScriptBin "fzfr" /*bash*/ ''
+      ${fzf}/bin/fzf -e --cycle --walker-skip=.git,.direnv | xargs -r rm 
+      '')
+
           ];
           shellHook = ''
       export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<title>Setting Up Newsboat the Nix Way | Abhinandh S</title>
+	<title>Nix Functions to Setup Newsboat Urls | Abhinandh S</title>
 	<link rel="canonical" href="http://localhost:1313/">
 	<link rel='alternate' type='application/rss+xml' title="Abhinandh S RSS" href='/index.xml'>
 	<link rel="icon" type="image/x-icon" href="/images/favicon/circle.svg">
@@ -10,7 +10,7 @@
 	<script src="/script.js" defer></script>
 	
 	<meta name="description" content="RSS is a powerful way to stay updated with your favorite blogs, social media channels, and other online content without being distracted by endless scrolling on the actual platforms. Newsboat, a terminal-based RSS reader, is an excellent tool for this.
-In this post, I&rsquo;ll guide you through how to set up your newsboat configuration using Nix functions to automatically generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify.">
+In this post, I&rsquo;ll guide you through how to set up your newsboat configuration using Nix functions to generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify with less boilerplates. For more informations on supported platforms visit rsshub.">
 	
 	<meta name="keywords" content="all">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,17 +44,15 @@ In this post, I&rsquo;ll guide you through how to set up your newsboat configura
 
 	<main>
 		<header>
-			<h1 id="tag_Setting Up Newsboat the Nix Way">Setting Up Newsboat the Nix Way</h1>
+			<h1 id="tag_Nix Functions To Setup Newsboat Urls">Nix Functions To Setup Newsboat Urls</h1>
 		</header>
 		<article>
 			
 			<p>RSS is a powerful way to stay updated with your favorite blogs, social media channels, and other online content without being distracted by endless scrolling on the actual platforms. <a href="https://newsboat.org/">Newsboat</a>, a terminal-based RSS reader, is an excellent tool for this.</p>
-<p>In this post, I&rsquo;ll guide you through how to set up your newsboat configuration using Nix functions to automatically generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify.</p>
-<p>For more informations on supported platforms visit <a href="https://rsshub.netlify.app/">rsshub</a>.</p>
-<h3 id="table-of-contents--">Table of Contents -</h3>
+<p>In this post, I&rsquo;ll guide you through how to set up your newsboat configuration using Nix functions to generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify with less boilerplates. For more informations on supported platforms visit <a href="https://rsshub.netlify.app/">rsshub</a>.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
 <ol>
 <li>What is Newsboat</li>
-<li>Why Use Nix for Newsboat Configuration?</li>
 <li>Setting Up Nix Functions for RSS Feeds</li>
 <li>Breakdown of Nix Functions for RSS Feeds</li>
 <li>Configuring Newsboat with Nix</li>
@@ -126,9 +124,137 @@ In this post, I&rsquo;ll guide you through how to set up your newsboat configura
 </span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="breakdown-of-nix-functions-for-rss-feeds">Breakdown of Nix Functions for RSS Feeds</h1>
-<p>Let’s break down how these functions work:</p>
-<ol>
+</div><h1 id="breakdown-of-the-nix-functions">Breakdown of the Nix Functions</h1>
+<p>In Nix, functions are written as:</p>
+<h4 id="single-parameter">Single parameter</h4>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>param1: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic"># Function Body</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="two-parameters">Two parameters</h4>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>param1: param2: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic"># Function Body</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>param1, param2 are inputs (arguments) to the function. That means we can write a function and pass just the username or unique id then the function we take care of the boilerplates parts of the links.</p>
+<h4 id="example">Example</h4>
+<p>If the input list is</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>instagramFeeds <span style="color:#f38ba8">=</span> [ <span style="color:#a6e3a1">&#34;kartikaaryan&#34;</span> <span style="color:#a6e3a1">&#34;shraddhakapoor&#34;</span> ]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>the output will be:</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  { tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;instagram&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://rsshub.app/picuki/profile/kartikaaryan&#34;</span>; }
+</span></span><span style="display:flex;"><span>  { tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;instagram&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://rsshub.app/picuki/profile/shraddhakapoor&#34;</span>; }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s create a funtions for YouTube feeds</p>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ <span style="color:#89dceb;font-weight:bold">...</span> }:
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">let</span>
+</span></span><span style="display:flex;"><span>Youtube <span style="color:#89dceb;font-weight:bold">=</span> userName: tags: {
+</span></span><span style="display:flex;"><span>    tags <span style="color:#89dceb;font-weight:bold">=</span> tags;
+</span></span><span style="display:flex;"><span>    url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://rsshub.app/youtube/user/@</span><span style="color:#a6e3a1">${</span>userName<span style="color:#a6e3a1">}</span><span style="color:#a6e3a1">&#34;</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">in</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="putting-all-togethere">Putting all togethere</h1>
+<div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ <span style="color:#89dceb;font-weight:bold">...</span> }:
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">let</span>
+</span></span><span style="display:flex;"><span>Youtube <span style="color:#89dceb;font-weight:bold">=</span> userName: tags: {
+</span></span><span style="display:flex;"><span>    tags <span style="color:#89dceb;font-weight:bold">=</span> tags;
+</span></span><span style="display:flex;"><span>    url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://rsshub.app/youtube/user/@</span><span style="color:#a6e3a1">${</span>userName<span style="color:#a6e3a1">}</span><span style="color:#a6e3a1">&#34;</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span><span style="color:#cba6f7">in</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>programs<span style="color:#89dceb;font-weight:bold">.</span>newsboat <span style="color:#89dceb;font-weight:bold">=</span> {
+</span></span><span style="display:flex;"><span>    enable <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#f9e2af">true</span>;
+</span></span><span style="display:flex;"><span>    browser <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;firefox&#34;</span>;
+</span></span><span style="display:flex;"><span>    autoReload <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#f9e2af">false</span>;
+</span></span><span style="display:flex;"><span>    urls <span style="color:#89dceb;font-weight:bold">=</span> [
+</span></span><span style="display:flex;"><span>      {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://feeds.feedburner.com/collabfund&#34;</span>;}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;JFlaMusic&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;music&#34;</span> ])
+</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;cmanishanthreghunath&#34;</span> [ <span style="color:#a6e3a1">&#34;academics&#34;</span> ])
+</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;AccountingStuff&#34;</span> [ <span style="color:#a6e3a1">&#34;academics&#34;</span> ])
+</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;CinemaStellar&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;movies&#34;</span> ])
+</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;DanMurrellMovies&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;movies&#34;</span> ])
+</span></span><span style="display:flex;"><span>      ];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
 <li>Instagram RSS Feeds</li>
 </ol>
 <div class="highlight"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -152,21 +278,6 @@ Example: For the username kartikaaryan, the URL generated would be:</p>
 <pre><code>nix
 
 https://rsshub.app/picuki/profile/kartikaaryan
-</code></pre>
-<ol start="2">
-<li>Twitter RSS Feeds (via Nitter)</li>
-</ol>
-<p>nix</p>
-<p>twitterFeeds = users: map (userNames: {
-tags = [ &ldquo;twitter&rdquo; ];
-url = &ldquo;<a href="https://nitter.privacydev.net/$%7BuserNames%7D/rss%22;">https://nitter.privacydev.net/${userNames}/rss&quot;;</a>
-}) users;</p>
-<pre><code>Purpose: Generates RSS feed URLs for Twitter profiles using Nitter, a privacy-friendly frontend for Twitter.
-Example: For the username elonmusk, the URL generated is:
-
-nix
-
-https://nitter.privacydev.net/elonmusk/rss
 </code></pre>
 <ol start="3">
 <li>Reddit RSS Feeds</li>
@@ -429,202 +540,86 @@ url: The URL for the user&rsquo;s Instagram feed using the RSSHub endpoint.
 The url field dynamically injects the userNames into the URL string:</p>
 <p>nix</p>
 <p>&ldquo;<a href="https://rsshub.app/picuki/profile/$%7BuserNames%7D%22">https://rsshub.app/picuki/profile/${userNames}&quot;</a></p>
-<p>Example: If the input list is [&ldquo;kartikaaryan&rdquo;, &ldquo;shraddhakapoor&rdquo;], the output will be:</p>
-<p>nix</p>
-<p>[
-{ tags = [ &ldquo;instagram&rdquo; ]; url = &ldquo;https://rsshub.app/picuki/profile/kartikaaryan&rdquo;; }
-{ tags = [ &ldquo;instagram&rdquo; ]; url = &ldquo;https://rsshub.app/picuki/profile/shraddhakapoor&rdquo;; }
-]</p>
 <h1 id="final-code">Final code</h1>
 <div class="highlight my_codeblock"><div style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">  9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 77
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 78
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 79
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 80
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 81
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 82
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 83
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 84
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 85
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 86
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 87
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 88
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 89
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 90
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 91
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 92
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 93
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 94
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 95
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 96
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 97
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 98
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 99
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">100
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">101
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">102
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">103
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">104
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">105
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">106
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">107
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">108
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">109
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">110
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">111
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">112
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">113
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">114
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">115
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">116
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">117
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">118
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">119
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">120
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">121
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">122
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">123
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">124
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">125
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">126
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">127
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">128
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">129
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">130
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">131
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">132
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">133
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">134
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">135
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">136
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">137
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">138
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">139
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">140
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">141
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">142
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">143
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">144
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">145
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">146
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">147
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">148
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">149
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">150
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">151
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">152
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">153
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">154
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">155
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">156
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">157
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">158
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">159
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">160
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">161
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">162
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">163
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">164
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">165
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">166
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">167
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">168
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">169
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">170
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">171
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">172
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">173
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">174
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">175
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">176
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">177
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">178
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">179
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">180
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">181
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">182
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">183
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">184
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">185
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">186
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">187
+<pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f849c">77
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ <span style="color:#89dceb;font-weight:bold">...</span> }:
@@ -653,9 +648,6 @@ The url field dynamically injects the userNames into the URL string:</p>
 </span></span><span style="display:flex;"><span>  tags <span style="color:#89dceb;font-weight:bold">=</span> tags;
 </span></span><span style="display:flex;"><span>  url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://www.youtube.com/feeds/videos.xml?channel_id=</span><span style="color:#a6e3a1">${</span>channel_id<span style="color:#a6e3a1">}</span><span style="color:#a6e3a1">&#34;</span>;
 </span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># https://charts.youtube.com/charts/TopSongs/in/weekly</span>
-</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># category = TopArtists	TopSongs	TopVideos	TrendingVideos</span>
-</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># countryCode = </span>
 </span></span><span style="display:flex;"><span>YtMusicChart <span style="color:#89dceb;font-weight:bold">=</span> category: countryCode: tags: {
 </span></span><span style="display:flex;"><span>  tags <span style="color:#89dceb;font-weight:bold">=</span> tags;
 </span></span><span style="display:flex;"><span>  url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://rsshub.app/youtube/charts/</span><span style="color:#a6e3a1">${</span>category<span style="color:#a6e3a1">}</span><span style="color:#a6e3a1">/</span><span style="color:#a6e3a1">${</span>countryCode<span style="color:#a6e3a1">}</span><span style="color:#a6e3a1">/RightNow&#34;</span>;
@@ -670,147 +662,40 @@ The url field dynamically injects the userNames into the URL string:</p>
 </span></span><span style="display:flex;"><span>    enable <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#f9e2af">true</span>;
 </span></span><span style="display:flex;"><span>    browser <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;linkhandler&#34;</span>;
 </span></span><span style="display:flex;"><span>    autoReload <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#f9e2af">false</span>;
-</span></span><span style="display:flex;"><span>    reloadTime <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#fab387">60</span>;
-</span></span><span style="display:flex;"><span>    reloadThreads <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#fab387">10</span>;
 </span></span><span style="display:flex;"><span>    urls <span style="color:#89dceb;font-weight:bold">=</span> [
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://fortelabs.com/feed/&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://feeds.feedburner.com/collabfund&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://markmanson.net/feed&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://jamesclear.com/feed&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;http://calnewport.com/feed/&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://proton.me/blog/feed&#34;</span>;}
-</span></span><span style="display:flex;"><span>    {url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;---YOUTUBE-----------------------------------------------&#34;</span>;}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    (Youtube <span style="color:#a6e3a1">&#34;JFlaMusic&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;music&#34;</span> ])
-</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;cmanishanthreghunath&#34;</span> [ <span style="color:#a6e3a1">&#34;academics&#34;</span> ])
-</span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;AccountingStuff&#34;</span> [ <span style="color:#a6e3a1">&#34;academics&#34;</span> ])
+</span></span><span style="display:flex;"><span>      {tags <span style="color:#89dceb;font-weight:bold">=</span> [ <span style="color:#a6e3a1">&#34;articles&#34;</span> ]; url <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;https://feeds.feedburner.com/collabfund&#34;</span>;}
 </span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;CinemaStellar&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;movies&#34;</span> ])
 </span></span><span style="display:flex;"><span>      (Youtube <span style="color:#a6e3a1">&#34;DanMurrellMovies&#34;</span> [ <span style="color:#a6e3a1">&#34;youtube&#34;</span> <span style="color:#a6e3a1">&#34;movies&#34;</span> ])
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      (YoutubeId <span style="color:#a6e3a1">&#34;UC7YOGHUfC1Tb6E4pudI9STA&#34;</span> [])
 </span></span><span style="display:flex;"><span>      (YoutubeId <span style="color:#a6e3a1">&#34;UCP7WmQ_U4GB3K51Od9QvM0w&#34;</span> [])
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      (YtMusicChart <span style="color:#a6e3a1">&#34;TopSongs&#34;</span> <span style="color:#a6e3a1">&#34;in&#34;</span> [ <span style="color:#a6e3a1">&#34;YtMusic&#34;</span> ])
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;playlist&#34;</span> <span style="color:#a6e3a1">&#34;Top Songs - Global&#34;</span> <span style="color:#a6e3a1">&#34;37i9dQZEVXbNG2KDcFcKOF&#34;</span>)
 </span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;playlist&#34;</span> <span style="color:#a6e3a1">&#34;Top Songs - India&#34;</span> <span style="color:#a6e3a1">&#34;37i9dQZEVXbMWDif5SCBJq&#34;</span>)
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;artist&#34;</span> <span style="color:#a6e3a1">&#34;Halsey&#34;</span>            <span style="color:#a6e3a1">&#34;26VFTg2z8YR0cCuwLzESi2&#34;</span>)
-</span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;artist&#34;</span> <span style="color:#a6e3a1">&#34;Zayn&#34;</span>              <span style="color:#a6e3a1">&#34;5ZsFI1h6hIdQRw2ti0hz81&#34;</span>)
-</span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;artist&#34;</span> <span style="color:#a6e3a1">&#34;Harry Styles&#34;</span>      <span style="color:#a6e3a1">&#34;6KImCVD70vtIoJWnq6nGn3&#34;</span>)
-</span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;artist&#34;</span> <span style="color:#a6e3a1">&#34;Ed Sheeran&#34;</span>        <span style="color:#a6e3a1">&#34;6eUKZXaKkcviH0Ku9w2n3V&#34;</span>)
 </span></span><span style="display:flex;"><span>      (Spotify <span style="color:#a6e3a1">&#34;artist&#34;</span> <span style="color:#a6e3a1">&#34;The Chainsmokers&#34;</span>  <span style="color:#a6e3a1">&#34;69GGBxA162lTqCwzJG5jLp&#34;</span>)
 </span></span><span style="display:flex;"><span>      ]
 </span></span><span style="display:flex;"><span>      <span style="color:#89dceb;font-weight:bold">++</span> youTubeFeeds [
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e3a1">&#34;jonhoo&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;lundeveloper&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;jonhoo&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;LukeSmithxyz&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;NoBoilerplate&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;letsgetrusty&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;TechnoTim&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;programmersarealsohuman5909&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;ThePrimeagen&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;ThePrimeTimeagen&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;TheVimeagen&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;fknight&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;TsodingDaily&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;hubermanlab&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;MentalOutlaw&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;technicalsagarindia&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;NetworkChuck&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;mkbhd&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;bugswriter_&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;DistroTube&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;LoiLiangYang&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;JerryRigEverything&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;EricMurphyxyz&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;librephoenix&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;LowLevel-TV&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;shal.e8033&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;Emergent_Mind&#34;</span>
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>        <span style="color:#89dceb;font-weight:bold">++</span> twitterFeeds [
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;jonhoo&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;jonhoo&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;MikaPikaZo&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;elonmusk&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;LiveOverflow&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;_JohnHammond&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;naval&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;networkchuck&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;grapheneos&#34;</span>
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>        <span style="color:#89dceb;font-weight:bold">++</span> redditFeeds [
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;rust&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;rust&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;nixos&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;firefoxcss&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;latex&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;unixporn&#34;</span>
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>        <span style="color:#89dceb;font-weight:bold">++</span> instagramFeeds [
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e3a1">&#34;kartikaaryan&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;__.yshnav._&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;jishnu_jishnu_&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;alisha_c_jojan&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;krithi.shetty_official&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;kartikaaryan&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;shraddhakapoor&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;samyukthaviswanathan&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;_.suj1th._&#34;</span> <span style="color:#6c7086;font-style:italic"># private :|</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;_imanuraj&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e3a1">&#34;_aksh_ay_______&#34;</span>
 </span></span><span style="display:flex;"><span>        ];
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#6c7086;font-style:italic"># macro v set browser &#34;setsid -f mpv&#34; ; open-in-browser ; set browser firefox</span>
 </span></span><span style="display:flex;"><span>    extraConfig <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#39;&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1"># browser &#34;wget %u -P /home/abhi/pics/pictures/newsboat&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      external-url-viewer &#34;urlscan -dc -r &#39;linkhandler {}&#39;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro , open-in-browser
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro t set browser &#34;qndl&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro a set browser &#34;tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro v set browser &#34;setsid -f mpv&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro w set browser &#34;lynx&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro d set browser &#34;dmenuhandler&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro c set browser &#34;echo %u | xclip -r -sel c&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro C set browser &#34;youtube-viewer --comments=%u&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro p set browser &#34;wget %u -P /home/abhi/pics/pictures/newsboat&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      macro P set browser &#34;peertubetorrent %u 1080&#34; ; open-in-browser ; set browser linkhandler
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key j down
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key k up
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key j next articlelist
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key k prev articlelist
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key J next-feed articlelist
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key K prev-feed articlelist
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key G end
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key g home
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key d pagedown
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key u pageup
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key l open
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key h quit
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key a toggle-article-read
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key n next-unread
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key N prev-unread
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key D pb-download
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key U show-urls
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      bind-key x pb-delete
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color listnormal color244 default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color listfocus black yellow standout bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color listnormal_unread blue default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color listfocus_unread yellow default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color info red black bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      color article white default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight all &#34;---.*---&#34; color47 
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight feedlist &#34;.*(0/0))&#34; black
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;(^Feed:.*|^Title:.*|^Author:.*)&#34; cyan default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;(^Link:.*|^Date:.*)&#34; default default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;https?://[^ ]+&#34; green default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;^(Title):.*$&#34; blue default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;\\[[0-9][0-9]*\\]&#34; magenta default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;\\[image\\ [0-9]+\\]&#34; green default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;\\[embedded flash: [0-9][0-9]*\\]&#34; green default bold
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;:.*\\(link\\)$&#34; cyan default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;:.*\\(image\\)$&#34; blue default
-</span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      highlight article &#34;:.*\\(embedded flash\\)$&#34; magenta default
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e3a1">      &#39;&#39;</span>;
 </span></span><span style="display:flex;"><span>  };
 </span></span><span style="display:flex;"><span>}
