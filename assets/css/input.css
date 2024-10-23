@@ -33,7 +33,7 @@
   }
 
   h1 {
-    @apply text-2xl;
+    @apply text-2xl pt-4;
   }
 
   h2 {
@@ -50,6 +50,14 @@
 
   a {
     @apply text-mocha-lavender no-underline active:text-mocha-teal visited:text-mocha-lavender hover:text-vibez-red;
+  }
+
+  pre {
+    @apply border-0 p-3 bg-mocha-base font-mono overflow-x-scroll max-w-full
+  }
+
+  pre code {
+    @apply min-w-9 block overflow-x-scroll font-mono
   }
 }
 

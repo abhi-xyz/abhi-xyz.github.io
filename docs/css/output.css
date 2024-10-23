@@ -243,7 +243,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -590,6 +590,7 @@ img {
 }
 
 h1 {
+  padding-top: 1rem;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -629,6 +630,23 @@ a:hover {
 a:active {
   --tw-text-opacity: 1;
   color: rgb(148 226 213 / var(--tw-text-opacity));
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+  border-width: 0px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 30 46 / var(--tw-bg-opacity));
+  padding: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular;
+}
+
+pre code {
+  display: block;
+  min-width: 2.25rem;
+  overflow-x: scroll;
+  font-family: ui-monospace, SFMono-Regular;
 }
 
 .container {
@@ -798,10 +816,6 @@ a:active {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-normal {
-  font-weight: 400;
 }
 
 .text-mocha-text {

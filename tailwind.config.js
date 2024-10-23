@@ -18,6 +18,7 @@ module.exports = {
     fontFamily: {
       sans: ["Helvetica Neue", "Graphik", "Arial", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      mono: ["ui-monospace", "SFMono-Regular"],
     },
     colors: {
       vibez: {
