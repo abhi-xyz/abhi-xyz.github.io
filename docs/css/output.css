@@ -154,7 +154,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Helvetica Neue, Graphik, sans-serif;
+  font-family: Helvetica Neue, Graphik, Arial, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -554,6 +554,12 @@ video {
   display: none;
 }
 
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
 p {
   padding: 0.5rem;
 }
@@ -564,7 +570,7 @@ h1,
   h4,
   h5 {
   padding: 1rem;
-  font-family: Helvetica Neue, Graphik, sans-serif;
+  font-family: Helvetica Neue, Graphik, Arial, sans-serif;
 }
 
 body {
@@ -670,10 +676,6 @@ a:active {
 
 .mt-12 {
   margin-top: 3rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
 }
 
 .block {

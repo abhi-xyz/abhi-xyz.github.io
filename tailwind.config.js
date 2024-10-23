@@ -16,7 +16,7 @@ module.exports = {
       // => @media (min-width: 1280px) { ... }
     },
     fontFamily: {
-      sans: ["Helvetica Neue", "Graphik", "sans-serif"],
+      sans: ["Helvetica Neue", "Graphik", "Arial", "sans-serif"],
       serif: ["Merriweather", "serif"],
     },
     colors: {
