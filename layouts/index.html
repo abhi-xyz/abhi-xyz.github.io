@@ -1,7 +1,7 @@
 {{ define "main" -}}
 {{ .Content }}
 
-<header>
+<header class="text-center">
   <h1>Hello Friends</h1>
   <h1>Welcome to my corner of Internet</h1>
 </header>
@@ -21,10 +21,10 @@
 </p>
 <br>
 <h2>Recent post</h2>
-<ul>
+<ul class="p-2 list-none">
   {{ range .Site.RegularPages }}
-  <li>
-    <h4><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h4>
+  <li class="p-0 m-0 list-none">
+    <h4 class="py-1 m-0"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h4>
     {{ end }}
   </li>
 </ul>
