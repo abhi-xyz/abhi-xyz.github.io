@@ -1,22 +1,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
 	<title>Abhinandh S</title>
-	<link>http://localhost:1313/</link>
+	<link>https://abhinandhs.in/</link>
 	<description>Recent content on Abhinandh S</description>
 	<generator>Hugo -- gohugo.io</generator>
 	<language>en-us</language>
 	<copyright>© 2024-25 Abhinandh S.</copyright>
 	<lastBuildDate>Tue, 22 Oct 2024 13:18:36 +0530</lastBuildDate>
     
-        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://abhinandhs.in/index.xml" rel="self" type="application/rss+xml" />
 	
 	
 	<item>
 		<title>Nix Functions To Setup Newsboat Urls</title>
-		<link>http://localhost:1313/articles/setting-up-newsboat-the-nix-way/</link>
+		<link>https://abhinandhs.in/articles/setting-up-newsboat-the-nix-way/</link>
 		<pubDate>Tue, 22 Oct 2024 13:18:36 +0530</pubDate>
 		
-		<guid>http://localhost:1313/articles/setting-up-newsboat-the-nix-way/</guid>
+		<guid>https://abhinandhs.in/articles/setting-up-newsboat-the-nix-way/</guid>
 		<description>&lt;p&gt;RSS is a powerful way to stay updated with your favorite blogs, social media channels, and other online content without being distracted by endless scrolling on the actual platforms. &lt;a href=&#34;https://newsboat.org/&#34;&gt;Newsboat&lt;/a&gt;, a terminal-based RSS reader, is an excellent tool for this.&lt;/p&gt;
 &lt;p&gt;In this post, I&amp;rsquo;ll guide you through how to set up your newsboat configuration using Nix functions to generate RSS feeds from platforms like YouTube, Twitter, Reddit, Instagram, and Spotify with less boilerplates. For more informations on supported platforms visit &lt;a href=&#34;https://rsshub.netlify.app/&#34;&gt;rsshub&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h3&gt;
@@ -675,10 +675,10 @@ The url field dynamically injects the userNames into the URL string:&lt;/p&gt;
 	
 	<item>
 		<title>How to Set Up GoDaddy Domain With GitHub Pages</title>
-		<link>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
+		<link>https://abhinandhs.in/articles/how-to-set-up-godaddy-domain-with-github-pages/</link>
 		<pubDate>Sat, 19 Oct 2024 09:10:47 +0530</pubDate>
 		
-		<guid>http://localhost:1313/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
+		<guid>https://abhinandhs.in/articles/how-to-set-up-godaddy-domain-with-github-pages/</guid>
 		<description>&lt;p&gt;Congrats! You’ve finally bought yourself a domain, and now you&amp;rsquo;re ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.&lt;/p&gt;
 &lt;h1 id=&#34;step-1-configuring-github-pages&#34;&gt;Step 1: Configuring GitHub Pages&lt;/h1&gt;
 &lt;p&gt;First, ensure that your repository name follows the required naming convention for GitHub Pages
@@ -750,10 +750,10 @@ GitHub will automatically create a CNAME file in the root directory of your repo
 	
 	<item>
 		<title>Sops Nix: A Step-by-Step Guide</title>
-		<link>http://localhost:1313/articles/sops-nix/</link>
+		<link>https://abhinandhs.in/articles/sops-nix/</link>
 		<pubDate>Thu, 17 Oct 2024 18:12:59 +0530</pubDate>
 		
-		<guid>http://localhost:1313/articles/sops-nix/</guid>
+		<guid>https://abhinandhs.in/articles/sops-nix/</guid>
 		<description>&lt;p&gt;In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.&lt;/p&gt;
 &lt;h2 id=&#34;step-1---installing-sops-via-flakes&#34;&gt;Step 1 - Installing Sops via Flakes&lt;/h2&gt;
 &lt;p&gt;To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:&lt;/p&gt;
