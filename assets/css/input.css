@@ -41,23 +41,31 @@
   }
 
   ol li {
-    @apply ml-6 list-inside list-decimal;
+    @apply ml-6 list-decimal;
   }
 
   ul li {
-    @apply ml-10 list-inside list-disc;
+    @apply ml-10 list-disc;
+  }
+
+  li p {
+    @apply p-0;
   }
 
   a {
     @apply text-mocha-lavender no-underline active:text-mocha-teal visited:text-mocha-lavender hover:text-vibez-red;
   }
 
+  blockquote {
+    @apply my-2 border-l-4 border-mocha-pink;
+  }
+
   pre {
-    @apply border-0 p-3 bg-mocha-base font-mono overflow-x-scroll max-w-full
+    @apply border-0 p-1 bg-mocha-base font-normal font-mono overflow-x-scroll max-w-full
   }
 
   pre code {
-    @apply min-w-9 block overflow-x-scroll font-mono
+    @apply min-w-9 block overflow-x-scroll font-normal font-mono
   }
 }
 

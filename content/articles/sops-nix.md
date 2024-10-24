@@ -1,36 +1,160 @@
 +++
-title = 'Sops Nix: A Step-by-Step Guide'
-tags = ['all', 'nix', 'nixos', 'linux']
+title = 'A Gentle Guide to Using Sops-Nix'
+tags = ['all', 'nixos', 'linux']
 date = 2024-10-17T18:12:59+05:30
 +++
 
-In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.
+Sops-nix might seem complicated at first, but once you dive into it, you'll realize it's much simpler than it appears. In fact, I put off learning it for a while myself, but when I finally sat down to understand it, I had everything up and running in just 30 minutes. The goal of this guide is to help you understand sops-nix as quickly as possible, so let’s break it down step by step.
 
-## Step-1 Installing Sops via Flakes
+# Setting up Sops-Nix
 
-To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
+## Step 1: Adding sops-nix to your Nix configuration
 
-```nix { .my_codeblock hl_Lines="2 6 13"}
+The first thing we need to do is add the source of sops-nix in the inputs section of your flake.nix. Afterward, we pass it to the outputs.
+
+```nix { .my_codeblock hl_Lines="5-8 14 28 39"}
 {
-  inputs.sops-nix.url = "github:Mic92/sops-nix";
-  # optional, not necessary for the module
-  #inputs.sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+  description = "Abhi's NixOS Configuration";
 
-  outputs = { self, nixpkgs, sops-nix }: {
-    # change `yourhostname` to your actual hostname
-    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
-      # customize to your system
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        sops-nix.nixosModules.sops
-      ];
+  inputs = {
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = inputs@{
+    self,
+      nixpkgs,
+      sops-nix,
+      home-manager,
+      ...
+  }:
+  let
+    system = "x86_64-linux";
+};
+in {
+  nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+    inherit system;
+    specialArgs = { inherit inputs; };
+    modules = [
+      ./hosts/configuration.nix
+
+        sops-nix.nixosModules.sops
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            users.abhi = {
+              imports = [
+                ./home/home.nix
+              ];
+            };
+            sharedModules = [
+              inputs.sops-nix.homeManagerModules.sops
+            ];
+          };
+        }
+    ];
+  };
+};
 }
 ```
 
-Replace yourhostname with the actual hostname of your machine.
+At this point, we have full access to the sops-nix functionality in both system-wide and home-manager configurations.
+
+Once you’ve set this up, you can now use sops-nix options anywhere in your configuration files, including configuration.nix, home.nix, and their submodules.
+
+## Step 2: Installing Sops and Age
+
+With sops-nix integrated into your configuration, the next step is to install sops and age, which are the tools that handle encryption and decryption.
+
+```nix
+environment.systemPackages = with pkgs; [
+  sops
+  age
+];
+```
+
+## Step 3: Generating Your Age Key Pair
+
+Once you've installed age, the next step is to generate an Age key pair. The public key will be used for encrypting secrets, and the private key will be used to decrypt them.
+
+Run the following command to generate a key pair:
+
+```fish
+age-keygen -o keys.txt
+```
+
+This will create a file keys.txt containing both the public and private keys. Store your private key securely — you can even keep it on a USB drive for additional safety rather than storing it directly on your machine.
+
+# Step 4: Understanding the Role of Sops and Sops-Nix
+
+It’s important to distinguish the roles of sops and sops-nix:
+
+- **Sops**: This is the tool that will handle encrypting and decrypting your secret files. It uses the public key to encrypt files and the private key to decrypt them.
+
+- **Sops-Nix**: This bridges the gap between Nix and Sops. It allows your Nix configuration to pull in secrets from an encrypted file (_like secrets.yaml_) and use them in your NixOS or home-manager setup.
+
+# Step 5: Setting Up the .sops.yaml File
+
+To simplify things, sops provides a config file, .sops.yaml, where you can specify the public keys of different users and the location of the private keys.
+
+Here’s an example of a **.sops.yaml** configuration:
+
+```yaml
+age:
+  recipients:
+    - age1z0h2m8l5... # your public key here
+```
+
+> By setting up this file, you can avoid manually entering long commands and keys in the terminal each time you encrypt or decrypt a file. Now, you can open your secrets.yaml file with a simple command like:
+
+bash
+
+sops secrets.yaml
+
+Sops will automatically decrypt the contents of secrets.yaml using the key from the .sops.yaml configuration file.
+Step 6: Telling Nix to Use the Encrypted Secrets
+
+Now that everything is set up, the final step is to configure your Nix setup to use the encrypted secrets.
+
+Here’s how it works: sops-nix integrates into your Nix configuration and looks into the encrypted secrets.yaml file. It retrieves the necessary secrets and makes them available to the rest of your Nix configuration. If a key is present in secrets.yaml, it decrypts it; otherwise, it leaves it untouched.
+
+In essence, sops acts as an intermediary. It helps you manage encrypted secrets in a YAML file (secrets.yaml) and allows sops-nix to use these secrets securely within your Nix configuration.
+
+Here’s an example of how you might configure Nix to use secrets:
+
+nix
+
+{
+  config, pkgs, ... }: {
+    imports = [ inputs.sops-nix.nixosModules.sops ];
+
+    sops.secrets = {
+      mysecret = {
+        file = ./secrets.yaml;
+        key = "some.secret.key";
+      };
+    };
+  }
+
+This example shows how sops-nix retrieves the secret from secrets.yaml under the key "some.secret.key".
+Conclusion
+
+In this guide, we’ve walked through setting up sops-nix step by step. To recap:
+
+    Add sops-nix to your Nix configuration.
+    Install the necessary tools: sops and age.
+    Generate an Age key pair to handle encryption and decryption.
+    Set up .sops.yaml for easier management of keys.
+    Configure your NixOS or home-manager setup to retrieve secrets from the encrypted secrets.yaml.
+
+By the end of this process, you’ll have a fully functioning system for securely managing secrets with sops-nix.
+
+Happy hacking!
+
+
 
 ## Step 2 - Generate an Age Key
 

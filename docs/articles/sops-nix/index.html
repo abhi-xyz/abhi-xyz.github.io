@@ -2,59 +2,16 @@
 <html lang="en">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-	<title>Sops Nix: A Step-by-Step Guide | Abhinandh S</title>
+	<title>A Gentle Guide to Using Sops-Nix | Abhinandh S</title>
 	<link rel="canonical" href="http://localhost:1313/">
 	<link rel='alternate' type='application/rss+xml' title="Abhinandh S RSS" href='/index.xml'>
 	<link rel="icon" type="image/x-icon" href="/images/favicon/circle.svg">
 	<link rel='stylesheet' type='text/css' href='/css/output.css'>
 	<script src="/script.js" defer></script>
 	
-	<meta name="description" content="In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.
-Step-1 Installing Sops via Flakes
-To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:
-
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-
-
-{
-  inputs.sops-nix.url = &#34;github:Mic92/sops-nix&#34;;
-  # optional, not necessary for the module
-  #inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;;
-
-  outputs = { self, nixpkgs, sops-nix }: {
-    # change `yourhostname` to your actual hostname
-    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
-      # customize to your system
-      system = &#34;x86_64-linux&#34;;
-      modules = [
-        ./configuration.nix
-        sops-nix.nixosModules.sops
-      ];
-    };
-  };
-}
-
-
-Replace yourhostname with the actual hostname of your machine.">
+	<meta name="description" content="Sops-nix might seem complicated at first, but once you dive into it, you&rsquo;ll realize it&rsquo;s much simpler than it appears. In fact, I put off learning it for a while myself, but when I finally sat down to understand it, I had everything up and running in just 30 minutes. The goal of this guide is to help you understand sops-nix as quickly as possible, so let’s break it down step by step.">
 	
-	<meta name="keywords" content="all , nix , nixos , linux">
+	<meta name="keywords" content="all , nixos , linux">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="index, follow">
 	<meta charset="utf-8">
@@ -128,54 +85,202 @@ Replace yourhostname with the actual hostname of your machine.">
 
 	<main>
 		<header>
-			<h1 class="text-center font-extrabold" id="tag_Sops Nix: A Step-by-Step Guide">Sops Nix: A Step-by-Step Guide</h1>
+			<h1 class="text-center font-extrabold" id="tag_A Gentle Guide to Using Sops-Nix">A Gentle Guide to Using Sops-Nix</h1>
 		</header>
 		<article>
 			
-			<p>In this guide, we’ll walk through how to integrate Sops with Nix to securely manage secrets in your NixOS setup.</p>
-<h2 id="step-1-installing-sops-via-flakes">Step-1 Installing Sops via Flakes</h2>
-<p>To begin, we need to add sops-nix as a Flake input and include its module in your NixOS configuration:</p>
+			<p>Sops-nix might seem complicated at first, but once you dive into it, you&rsquo;ll realize it&rsquo;s much simpler than it appears. In fact, I put off learning it for a while myself, but when I finally sat down to understand it, I had everything up and running in just 30 minutes. The goal of this guide is to help you understand sops-nix as quickly as possible, so let’s break it down step by step.</p>
+<h1 id="setting-up-sops-nix">Setting up Sops-Nix</h1>
+<h2 id="step-1-adding-sops-nix-to-your-nix-configuration">Step 1: Adding sops-nix to your Nix configuration</h2>
+<p>The first thing we need to do is add the source of sops-nix in the inputs section of your flake.nix. Afterward, we pass it to the outputs.</p>
 <div class="highlight my_codeblock"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
-</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
-</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
-</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
-</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span></span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span></span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span></span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
-</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
-</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">38
+</span><span style="background-color:#3d4148"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">39
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">46
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
-</span></span><span style="display:flex; background-color:#3d4148"><span>  <span style="color:#e06c75">inputs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">sops-nix</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">url</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;github:Mic92/sops-nix&#34;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#7f848e"># optional, not necessary for the module</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#7f848e">#inputs.sops-nix.inputs.nixpkgs.follows = &#34;nixpkgs&#34;;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">description</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;Abhi&#39;s NixOS Configuration&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex; background-color:#3d4148"><span>  <span style="color:#e06c75">outputs</span> <span style="color:#56b6c2">=</span> { <span style="color:#e06c75">self</span><span style="color:#56b6c2">,</span> <span style="color:#e06c75">nixpkgs</span><span style="color:#56b6c2">,</span> <span style="color:#e06c75">sops-nix</span> }: {
-</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># change `yourhostname` to your actual hostname</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">nixosConfigurations</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">yourhostname</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nixpkgs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">lib</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixosSystem</span> {
-</span></span><span style="display:flex;"><span>      <span style="color:#7f848e"># customize to your system</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">system</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;x86_64-linux&#34;</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">modules</span> <span style="color:#56b6c2">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#98c379">./configuration.nix</span>
-</span></span><span style="display:flex; background-color:#3d4148"><span>        <span style="color:#e06c75">sops-nix</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixosModules</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">sops</span>
-</span></span><span style="display:flex;"><span>      ];
-</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">inputs</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex; background-color:#3d4148"><span>    <span style="color:#e06c75">sops-nix</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex; background-color:#3d4148"><span>      <span style="color:#e06c75">url</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;github:Mic92/sops-nix&#34;</span>;
+</span></span><span style="display:flex; background-color:#3d4148"><span>      <span style="color:#e06c75">inputs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixpkgs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">follows</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;nixpkgs&#34;</span>;
+</span></span><span style="display:flex; background-color:#3d4148"><span>    };
 </span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">outputs</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">inputs</span><span style="color:#56b6c2">@</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">self</span><span style="color:#56b6c2">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">nixpkgs</span><span style="color:#56b6c2">,</span>
+</span></span><span style="display:flex; background-color:#3d4148"><span>      <span style="color:#e06c75">sops-nix</span><span style="color:#56b6c2">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">home-manager</span><span style="color:#56b6c2">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#56b6c2">...</span>
+</span></span><span style="display:flex;"><span>  }:
+</span></span><span style="display:flex;"><span>  <span style="color:#c678dd">let</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">system</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;x86_64-linux&#34;</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">in</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">nixosConfigurations</span><span style="color:#56b6c2">.</span><span style="color:#98c379">&#34;nixos&#34;</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">nixpkgs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">lib</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixosSystem</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">inherit</span> <span style="color:#e06c75">system</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">specialArgs</span> <span style="color:#56b6c2">=</span> { <span style="color:#c678dd">inherit</span> <span style="color:#e06c75">inputs</span>; };
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">modules</span> <span style="color:#56b6c2">=</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#98c379">./hosts/configuration.nix</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#3d4148"><span>        <span style="color:#e06c75">sops-nix</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixosModules</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">sops</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">home-manager</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nixosModules</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">home-manager</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#e06c75">home-manager</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">users</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">abhi</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>              <span style="color:#e06c75">imports</span> <span style="color:#56b6c2">=</span> [
+</span></span><span style="display:flex;"><span>                <span style="color:#98c379">./home/home.nix</span>
+</span></span><span style="display:flex;"><span>              ];
+</span></span><span style="display:flex;"><span>            };
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">sharedModules</span> <span style="color:#56b6c2">=</span> [
+</span></span><span style="display:flex; background-color:#3d4148"><span>              <span style="color:#e06c75">inputs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">sops-nix</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">homeManagerModules</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">sops</span>
+</span></span><span style="display:flex;"><span>            ];
+</span></span><span style="display:flex;"><span>          };
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ];
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Replace yourhostname with the actual hostname of your machine.</p>
+</div><p>At this point, we have full access to the sops-nix functionality in both system-wide and home-manager configurations.</p>
+<p>Once you’ve set this up, you can now use sops-nix options anywhere in your configuration files, including configuration.nix, home.nix, and their submodules.</p>
+<h2 id="step-2-installing-sops-and-age">Step 2: Installing Sops and Age</h2>
+<p>With sops-nix integrated into your configuration, the next step is to install sops and age, which are the tools that handle encryption and decryption.</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span><span style="color:#e06c75">environment</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">systemPackages</span> = <span style="color:#c678dd">with</span> <span style="color:#e06c75">pkgs</span>; [
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">sops</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">age</span>
+</span></span><span style="display:flex;"><span>];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="step-3-generating-your-age-key-pair">Step 3: Generating Your Age Key Pair</h2>
+<p>Once you&rsquo;ve installed age, the next step is to generate an Age key pair. The public key will be used for encrypting secrets, and the private key will be used to decrypt them.</p>
+<p>Run the following command to generate a key pair:</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#61afef;font-weight:bold">age-keygen</span> <span style="color:#e06c75">-o</span> keys.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This will create a file keys.txt containing both the public and private keys. Store your private key securely — you can even keep it on a USB drive for additional safety rather than storing it directly on your machine.</p>
+<h1 id="step-4-understanding-the-role-of-sops-and-sops-nix">Step 4: Understanding the Role of Sops and Sops-Nix</h1>
+<p>It’s important to distinguish the roles of sops and sops-nix:</p>
+<ul>
+<li>
+<p><strong>Sops</strong>: This is the tool that will handle encrypting and decrypting your secret files. It uses the public key to encrypt files and the private key to decrypt them.</p>
+</li>
+<li>
+<p><strong>Sops-Nix</strong>: This bridges the gap between Nix and Sops. It allows your Nix configuration to pull in secrets from an encrypted file (<em>like secrets.yaml</em>) and use them in your NixOS or home-manager setup.</p>
+</li>
+</ul>
+<h1 id="step-5-setting-up-the-sopsyaml-file">Step 5: Setting Up the .sops.yaml File</h1>
+<p>To simplify things, sops provides a config file, .sops.yaml, where you can specify the public keys of different users and the location of the private keys.</p>
+<p>Here’s an example of a <strong>.sops.yaml</strong> configuration:</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#e06c75">age</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">recipients</span>:
+</span></span><span style="display:flex;"><span>    - age1z0h2m8l5... <span style="color:#7f848e"># your public key here</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+  <p>By setting up this file, you can avoid manually entering long commands and keys in the terminal each time you encrypt or decrypt a file. Now, you can open your secrets.yaml file with a simple command like:</p>
+
+</blockquote>
+<p>bash</p>
+<p>sops secrets.yaml</p>
+<p>Sops will automatically decrypt the contents of secrets.yaml using the key from the .sops.yaml configuration file.
+Step 6: Telling Nix to Use the Encrypted Secrets</p>
+<p>Now that everything is set up, the final step is to configure your Nix setup to use the encrypted secrets.</p>
+<p>Here’s how it works: sops-nix integrates into your Nix configuration and looks into the encrypted secrets.yaml file. It retrieves the necessary secrets and makes them available to the rest of your Nix configuration. If a key is present in secrets.yaml, it decrypts it; otherwise, it leaves it untouched.</p>
+<p>In essence, sops acts as an intermediary. It helps you manage encrypted secrets in a YAML file (secrets.yaml) and allows sops-nix to use these secrets securely within your Nix configuration.</p>
+<p>Here’s an example of how you might configure Nix to use secrets:</p>
+<p>nix</p>
+<p>{
+config, pkgs, &hellip; }: {
+imports = [ inputs.sops-nix.nixosModules.sops ];</p>
+<pre><code>sops.secrets = {
+  mysecret = {
+    file = ./secrets.yaml;
+    key = &quot;some.secret.key&quot;;
+  };
+};
+</code></pre>
+<p>}</p>
+<p>This example shows how sops-nix retrieves the secret from secrets.yaml under the key &ldquo;some.secret.key&rdquo;.
+Conclusion</p>
+<p>In this guide, we’ve walked through setting up sops-nix step by step. To recap:</p>
+<pre><code>Add sops-nix to your Nix configuration.
+Install the necessary tools: sops and age.
+Generate an Age key pair to handle encryption and decryption.
+Set up .sops.yaml for easier management of keys.
+Configure your NixOS or home-manager setup to retrieve secrets from the encrypted secrets.yaml.
+</code></pre>
+<p>By the end of this process, you’ll have a fully functioning system for securely managing secrets with sops-nix.</p>
+<p>Happy hacking!</p>
 <h2 id="step-2---generate-an-age-key">Step 2 - Generate an Age Key</h2>
 <p>Next, you need to generate an age key for encryption, you can use gpg keys but age is considered more safe and secure:</p>
 <div class="highlight my_codeblock"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
@@ -376,7 +481,7 @@ Replace yourhostname with the actual hostname of your machine.">
     <div class="font-bold float-right text-right max-w-44 p-5">Next:<br>How to Set Up GoDaddy Domain With GitHub Pages</div>
   </a>
   </div>
-<div class="font-bold text-center clear-both">Related tags<br><a class="font-bold" id="tag_all" href="http://localhost:1313/tags/all">All</a> &middot; <a class="font-bold" id="tag_nix" href="http://localhost:1313/tags/nix">Nix</a> &middot; <a class="font-bold" id="tag_nixos" href="http://localhost:1313/tags/nixos">Nixos</a> &middot; <a class="font-bold" id="tag_linux" href="http://localhost:1313/tags/linux">Linux</a></div>
+<div class="font-bold text-center clear-both">Related tags<br><a class="font-bold" id="tag_all" href="http://localhost:1313/tags/all">All</a> &middot; <a class="font-bold" id="tag_nixos" href="http://localhost:1313/tags/nixos">Nixos</a> &middot; <a class="font-bold" id="tag_linux" href="http://localhost:1313/tags/linux">Linux</a></div>
 </article>
 		<footer class="text-center clear-both">
     <div>
