@@ -1,8 +1,8 @@
 deploy:
   hugo
+  git status
   git add -A
   git commit -m "Refactoring"
-  git status
   git push
 
 
