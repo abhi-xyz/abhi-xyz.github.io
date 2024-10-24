@@ -31,7 +31,7 @@ enableRobotsTXT = true
     lineNoStart = 1
     lineNos = true
     lineNumbersInTable = true
-    style = 'catppuccin-mocha'
+    style = 'onedark' # catppuccin-mocha  tokyonight-night
     tabWidth = 4
   [markup.goldmark]
     [markup.goldmark.parser]
