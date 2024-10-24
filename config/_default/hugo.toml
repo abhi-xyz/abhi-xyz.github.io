@@ -7,6 +7,15 @@ favicon = "/favicon.ico"
 cleanDestinationDir = true
 enableRobotsTXT = true
 
+[outputs]
+  home = ["html", "rss", "json"]
+
+[outputFormats.JSON]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = true
+
+
 [params]
   relatedtext = "Related tags"
   favicon = "/favicon.ico"

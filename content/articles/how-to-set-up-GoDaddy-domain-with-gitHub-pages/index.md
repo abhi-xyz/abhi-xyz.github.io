@@ -2,6 +2,7 @@
 title = 'How to Set Up GoDaddy Domain With GitHub Pages'
 date = 2024-10-19T09:10:47+05:30
 tags = ['all', 'github-pages']
+outputs = [ 'html', 'json' ]
 +++
 
 Congrats! You’ve finally bought yourself a domain, and now you're ready to connect it to your GitHub Pages website. This guide will walk you through the steps to set up your GoDaddy domain with GitHub Pages.

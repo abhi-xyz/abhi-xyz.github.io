@@ -30,7 +30,7 @@
             bash
             */
             ''
-              ${fd}/bin/fd --exclude '*.lock' | ${fzf}/bin/fzf --highlight-line --cycle --walker-skip=.git,.direnv,docs,public,images,assets,fonts,icons | xargs -r ${neovim}/bin/nvim
+              ${fzf}/bin/fzf --highlight-line --cycle --walker-skip=.git,node_modules,.direnv,target,images,icons,assets,fonts,public,docs | xargs -r ${neovim}/bin/nvim
             '')
           (writeShellScriptBin "fzfr"
             /*

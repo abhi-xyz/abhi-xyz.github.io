@@ -4,5 +4,6 @@ date = {{ .Date }}
 draft = true
 description = ""
 tags = ['all']
+outputs = [ 'html', 'json' ]
 +++
 

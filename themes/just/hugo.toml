@@ -1,0 +1,34 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'My New Hugo Site'
+theme = 'elegant'
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 20
+
+[[menus.main]]
+name = 'Tags'
+pageRef = '/tags'
+weight = 30
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
+
+[outputs]
+  home = ['html', 'rss', 'json']
+  page = ['html']
+  rss = ['rss']
+  section = ['html', 'rss']
+  taxonomy = ['html', 'rss']
+  term = ['html', 'rss']
+
+

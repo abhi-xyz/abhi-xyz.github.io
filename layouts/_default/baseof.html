@@ -24,9 +24,15 @@
 	{{ partial "header/site-header.html" . }}
 	{{ if .Site.Menus.main }}{{ partial "nav.html" . }}{{ end -}}
 	<main>
+		{{ partial "search.html" . }}
 		<header>
 			<h1 class="text-center font-extrabold" id="tag_{{ .Title }}">{{ block "title" . }}{{ end }}</h1>
 		</header>
+		{{ if or .Next .Prev -}}
+		<p>~ {{ .ReadingTime }} mins</p>
+		<hr>
+		<br>
+		{{ end -}}
 		<article>
 			{{ block "main" . }}
 			{{ .Content }}

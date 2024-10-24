@@ -1,0 +1,105 @@
+<div class="float-right flex items-center">
+  <!-- SVG icon beside the input -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cdd6f4"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+  <input
+    class="border-none ml-3 px-4 py-2 float-right bg-mocha-text text-mocha-crust placeholder-mocha-crust rounded-full"
+    type="text" id="search-input" placeholder="&#x1F50D;  Type to search...">
+
+</div>
+<br>
+<br>
+<br>
+<div class="float-right">
+  <ul
+    class="absolute right-0 top-full mt-2 w-64 bg-mocha-crust text-mocha-teal rounded-lg shadow-lg z-50 max-h-60 overflow-auto"
+    id="search-results"></ul>
+</div>
+
+
+
+
+<script>
+  let searchResults = [];  // Store current search results
+  let selectedIndex = -1;  // Track selected index for arrow navigation
+
+  // Fetch the JSON file
+  fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+      const input = document.getElementById('search-input');
+      const resultsList = document.getElementById('search-results');
+
+      // Handle input typing (real-time search)
+      input.addEventListener('input', () => {
+        const searchTerm = input.value.toLowerCase();
+        resultsList.innerHTML = ''; // Clear previous results
+        selectedIndex = -1;  // Reset selected index
+
+        // Filter the data using a fuzzy match
+        searchResults = data.filter(item =>
+          item.title.toLowerCase().includes(searchTerm) ||
+          item.summary.toLowerCase().includes(searchTerm)
+        );
+
+        // Display the results
+        searchResults.forEach((item, index) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.textContent = item.title;
+          li.appendChild(a);
+          li.setAttribute('data-index', index);  // Set index for navigation
+          resultsList.appendChild(li);
+        });
+
+        // Hide results if search term is empty
+        if (!searchTerm) {
+          resultsList.innerHTML = '';
+        }
+      });
+
+      // Handle keyboard navigation (Arrow keys and Enter)
+      input.addEventListener('keydown', (e) => {
+        const resultItems = document.querySelectorAll('#search-results li');
+
+        if (e.key === 'ArrowDown') {
+          // Move selection down
+          if (selectedIndex < searchResults.length - 1) {
+            selectedIndex++;
+          }
+          highlightSelected(resultItems);
+        } else if (e.key === 'ArrowUp') {
+          // Move selection up
+          if (selectedIndex > 0) {
+            selectedIndex--;
+          }
+          highlightSelected(resultItems);
+        } else if (e.key === 'Enter' && selectedIndex >= 0) {
+          // Select the highlighted result (navigate to link)
+          const selectedResult = resultItems[selectedIndex].querySelector('a');
+          if (selectedResult) {
+            window.location.href = selectedResult.href;  // Navigate to the link
+          }
+        }
+      });
+
+      // Hide search results when input loses focus (blur event)
+      input.addEventListener('blur', () => {
+        setTimeout(() => {  // Small delay to allow clicks
+          resultsList.innerHTML = '';  // Clear results on blur
+        }, 100);
+      });
+
+      // Function to highlight the selected result
+      function highlightSelected(items) {
+        items.forEach(item => item.classList.remove('selected'));  // Remove existing highlights
+        if (selectedIndex >= 0 && items[selectedIndex]) {
+          items[selectedIndex].classList.add('selected');  // Highlight new selection
+        }
+      }
+    });
+</script>
